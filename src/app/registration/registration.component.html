@@ -1,1 +1,59 @@
-<p>registration works!</p>
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="35">
+        <div style="text-align: left;">
+            <h2>
+                <span style="color: rgb(22, 170, 126);">F</span>
+                <span style="color: rgb(164, 102, 223);">u</span>
+                <span style="color: rgb(102, 231, 124);">n</span>
+                <span style="color: rgb(65, 121, 204);">d</span>
+                <span style="color: rgb(217, 255, 0);">o</span>
+                <span style="color: rgb(162, 96, 224);">o</span>
+            </h2>
+            <h5>Create your Fundoo Account</h5>
+        </div>
+        <br>
+        <form>
+            <div class="example-container">
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter your First name</mat-label>
+                    <mat-hint>Hint</mat-hint>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field appearance="outline" style="padding-left: 6px;">
+                    <mat-label>Enter Your Last name</mat-label>
+                    <input matInput>
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline" fxLayout="column" style="width: 100%;">
+                <mat-label>Enter your Email</mat-label>
+                <input matInput type="email" placeholder="Email">
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-hint>Enter Email</mat-hint>
+            </mat-form-field>
+            <div class="example-container">
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter password</mat-label>
+                    <input matInput type="password">
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="outline" style="padding-left: 6px;">
+                    <mat-label>Confirm password</mat-label>
+                    <input matInput type="password">
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Enter your Phone Number </mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-icon matSuffix>phone</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <button mat-raised-button>Login</button>
+            <br>
+            <br>
+            <button style="margin-left: 70%;" class="lognBtn" mat-raised-button type="submit" color="primary">Create Account</button>
+
+        </form>
+    </mat-card>
+</div>

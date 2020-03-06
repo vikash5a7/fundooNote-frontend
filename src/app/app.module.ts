@@ -17,7 +17,7 @@ import { RegistrationComponent } from './registration/registration.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
