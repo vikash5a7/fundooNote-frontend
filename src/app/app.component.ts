@@ -6,9 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  name = 'vikash';
-  salary = 5000;
-  show(): string {
-    return this.name + '_' + this.salary;
-  }
+  topics = ['angular', 'react', 'vie'];
+
 }
