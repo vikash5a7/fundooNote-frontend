@@ -49,10 +49,9 @@
                 <mat-icon matSuffix>phone</mat-icon>
                 <mat-hint>Hint</mat-hint>
             </mat-form-field>
-            <button mat-raised-button>Login</button>
+            <button [routerLink]="['/login']" mat-raised-button>Login</button>
             <br>
             <button style="margin-left: 70%;" class="lognBtn" mat-raised-button type="submit" color="primary">Create Account</button>
-
         </form>
     </mat-card>
 </div>

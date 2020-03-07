@@ -16,6 +16,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { FundooDashboardComponent } from './fundoo-dashboard/fundoo-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     PagenotfoundComponent,
+    FundooDashboardComponent,
   ],
   imports: [
     BrowserModule,
