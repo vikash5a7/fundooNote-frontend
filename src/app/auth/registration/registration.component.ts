@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -15,10 +15,9 @@ export class RegistrationComponent implements OnInit {
   password: null,
   confirmPassword: null,
   mobileNumber: null,
-
   };
 
-  constructor( private http: HttpClient) {
+  constructor(private user: UserService) {
   }
 
   ngOnInit() {
@@ -28,7 +27,7 @@ export class RegistrationComponent implements OnInit {
   console.log(error);
   }
   onSubmit() {
-   return this.http.post('http://localhost:8080/user/registration', this.form).subscribe(
+    this.user.signUp(this.form).subscribe(
      data => console.log(data),
      error => this.handleError(error)
    );
