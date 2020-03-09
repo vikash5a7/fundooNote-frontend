@@ -17,41 +17,41 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Enter your First name</mat-label>
                     <mat-hint>Hint</mat-hint>
-                    <input matInput>
+                    <input matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="outline" style="padding-left: 6px;">
                     <mat-label>Enter Your Last name</mat-label>
-                    <input matInput>
+                    <input matInput required>
                     <mat-hint>Hint</mat-hint>
                 </mat-form-field>
             </div>
             <mat-form-field appearance="outline" fxLayout="column" style="width: 100%;">
                 <mat-label>Enter your Email</mat-label>
-                <input matInput type="email" placeholder="Email">
+                <input email required matInput type="email" placeholder="Email">
                 <mat-icon matSuffix>email</mat-icon>
                 <mat-hint>Enter Email</mat-hint>
             </mat-form-field>
             <div class="example-container">
                 <mat-form-field appearance="outline">
                     <mat-label>Enter password</mat-label>
-                    <input matInput type="password">
+                    <input matInput required type="password" minlength="5">
                     <mat-hint>Hint</mat-hint>
                 </mat-form-field>
                 <mat-form-field appearance="outline" style="padding-left: 6px;">
                     <mat-label>Confirm password</mat-label>
-                    <input matInput type="password">
+                    <input matInput required type="password">
                     <mat-hint>Hint</mat-hint>
                 </mat-form-field>
             </div>
             <mat-form-field appearance="outline" style="width: 100%;">
                 <mat-label>Enter your Phone Number </mat-label>
-                <input matInput placeholder="Placeholder">
+                <input matInput placeholder="Placeholder" required ngForm>
                 <mat-icon matSuffix>phone</mat-icon>
                 <mat-hint>Hint</mat-hint>
             </mat-form-field>
             <button [routerLink]="['/login']" mat-raised-button>Login</button>
             <br>
-            <button style="margin-left: 70%;" class="lognBtn" mat-raised-button type="submit" color="primary">Create Account</button>
+            <button type="submit" [disabled]="invalid" style="margin-left: 70%;" class="lognBtn" mat-raised-button color="primary">Submit</button>
         </form>
     </mat-card>
 </div>
