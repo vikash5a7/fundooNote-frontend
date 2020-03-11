@@ -19,6 +19,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FundooDashboardComponent } from './fundoo-dashboard/fundoo-dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdatePasswordComponent } from './auth/update-password/update-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     ResetPasswordComponent,
     PagenotfoundComponent,
     FundooDashboardComponent,
+    UpdatePasswordComponent,
   ],
   imports: [
     BrowserModule,

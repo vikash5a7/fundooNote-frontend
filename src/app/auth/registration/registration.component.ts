@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -17,7 +18,9 @@ export class RegistrationComponent implements OnInit {
   mobileNumber: null,
   };
 
-  constructor(private user: UserService) {
+  constructor(private user: UserService,
+              private route: Router
+    ) {
   }
 
   ngOnInit() {
@@ -28,9 +31,12 @@ export class RegistrationComponent implements OnInit {
   }
   onSubmit() {
     this.user.signUp(this.form).subscribe(
-     data => console.log(data),
+     data => this.handleResponse(data),
      error => this.handleError(error)
    );
+  }
+  handleResponse(data) {
+  this.route.navigateByUrl('\login');
   }
 
 }

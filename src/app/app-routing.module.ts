@@ -7,6 +7,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { FundooDashboardComponent } from './fundoo-dashboard/fundoo-dashboard.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { UpdatePasswordComponent } from './auth/update-password/update-password.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,9 @@ const routes: Routes = [
   },
   {
     path: 'fundoo', component: FundooDashboardComponent,
+  },
+  {
+    path: 'update-password', component: UpdatePasswordComponent,
   },
   {
     path: '**',

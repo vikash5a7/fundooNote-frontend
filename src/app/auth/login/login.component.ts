@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
 import { TokenService } from '../../Services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,17 +10,19 @@ import { TokenService } from '../../Services/token.service';
 })
 export class LoginComponent implements OnInit {
   public error = null;
+  public hide = true;
   public form = {
     email: null,
     password: null
   };
 
   constructor(private user: UserService,
-              private token: TokenService
+              private token: TokenService,
+              private route: Router,
     ) {
   }
   handleError(error: { error: any; }) {
-  this.error = error.error;
+  this.error = error.error.message;
   console.log(error);
   }
   ngOnInit() {
@@ -31,7 +34,7 @@ export class LoginComponent implements OnInit {
    );
   }
   handleResponse(data) {
-    console.log(data.token);
     this.token.handle(data.token);
+    this.route.navigateByUrl('/fundoo');
   }
 }
