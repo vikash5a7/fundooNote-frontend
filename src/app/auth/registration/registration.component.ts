@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-registration',
@@ -20,7 +21,8 @@ export class RegistrationComponent implements OnInit {
   };
 
   constructor(private user: UserService,
-              private route: Router
+              private route: Router,
+              private matSnakeBar: MatSnackBar
     ) {
   }
   ngOnInit() {
@@ -29,6 +31,9 @@ export class RegistrationComponent implements OnInit {
   this.isloading = false;
   this.error = error.error.message;
   console.log(error);
+  this.matSnakeBar.open(this.error, 'ok', {
+    duration: 5000
+  });
   }
   onSubmit() {
     this.isloading = true;
@@ -39,6 +44,9 @@ export class RegistrationComponent implements OnInit {
   }
   handleResponse(data) {
     this.isloading = false;
+    this.matSnakeBar.open('Sucessfull Registration Done ', 'ok', {
+      duration: 5000
+    });
     this.route.navigateByUrl('\login');
   }
 }

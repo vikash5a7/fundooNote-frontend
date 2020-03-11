@@ -1,4 +1,4 @@
-<div fxLayoutAlign="center center" fxFlexFill style="color: aliceblue;">
+<div fxLayoutAlign="center center" fxFlexFill>
     <div *ngIf="isLoading">
         <app-spinner></app-spinner>
     </div>
@@ -10,7 +10,6 @@
             <h3>Sign in</h3>
             <p>Use your Fundoo Account</p>
         </div>
-
         <form action="" fxLayout="column" fxLayoutAlign="start start" #loginForm=ngForm (ngSubmit)="onSubmit()" *ngIf="!isLoading">
             <div class="alert alert-danger text-justify" [hidden]="!error">{{error}}</div>
             <mat-form-field appearance="outline" fxLayout="column" style="width: 100%;">

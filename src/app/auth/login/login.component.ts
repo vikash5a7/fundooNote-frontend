@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
 import { TokenService } from '../../Services/token.service';
+import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,11 +23,15 @@ export class LoginComponent implements OnInit {
   constructor(private user: UserService,
               private token: TokenService,
               private route: Router,
+              private matSnackBar: MatSnackBar
     ) {
   }
   handleError(error: { error: any; }) {
-    this.isLoading = true;
+    this.isLoading = false;
     this.error = error.error.message;
+    this.matSnackBar.open(this.error, 'ok', {
+      duration: 5000
+    });
     console.log(error);
   }
   ngOnInit() {
@@ -42,6 +47,9 @@ export class LoginComponent implements OnInit {
     this.token.handle(data.token);
     this.isLoading = false;
     this.token.logedIn(true);
+    this.matSnackBar.open('Sucessfully Login', 'ok', {
+      duration: 5000
+    });
     this.route.navigateByUrl('/fundoo');
   }
   isValideUser() {
@@ -58,7 +66,5 @@ export class LoginComponent implements OnInit {
   }
   handldeUserverfyError(error) {
     this.error = error.error.message;
-    console.log(error);
   }
-
 }

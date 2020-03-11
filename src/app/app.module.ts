@@ -22,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdatePasswordComponent } from './auth/update-password/update-password.component';
 import { SpinnerComponent } from './util/spinner/spinner.component';
 import { LogoComponent } from './util/logo/logo.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,9 @@ import { LogoComponent } from './util/logo/logo.component';
     MatCardModule,
     MatToolbarModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
