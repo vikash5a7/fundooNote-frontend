@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
   public error = null;
+  public isloading = false;
   public form = {
   fname: null,
   lname: null,
@@ -22,21 +23,22 @@ export class RegistrationComponent implements OnInit {
               private route: Router
     ) {
   }
-
   ngOnInit() {
   }
   handleError(error) {
+  this.isloading = false;
   this.error = error.error.message;
   console.log(error);
   }
   onSubmit() {
+    this.isloading = true;
     this.user.signUp(this.form).subscribe(
      data => this.handleResponse(data),
      error => this.handleError(error)
    );
   }
   handleResponse(data) {
-  this.route.navigateByUrl('\login');
+    this.isloading = false;
+    this.route.navigateByUrl('\login');
   }
-
 }

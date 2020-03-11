@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from '../Services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fundoo-dashboard',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FundooDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+     private token: TokenService,
+     private route: Router,
+  ) { }
 
   ngOnInit() {
   }
-
+  logout(event: MouseEvent) {
+    console.log('loggout function called');
+    event.preventDefault();
+    this.token.remove();
+    this.token.logedIn(false);
+    this.route.navigateByUrl('/login');
+  }
 }

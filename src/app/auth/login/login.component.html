@@ -1,18 +1,17 @@
 <div fxLayoutAlign="center center" fxFlexFill style="color: aliceblue;">
-    <mat-card fxFlex="28">
+    <div *ngIf="isLoading">
+        <app-spinner></app-spinner>
+    </div>
+    <mat-card fxFlex="28" *ngIf="!isLoading">
         <div style="text-align: center;">
-            <h4>
-                <span style="color: rgb(233, 152, 76);">F</span>
-                <span style="color: rgb(164, 102, 223);">u</span>
-                <span style="color: rgb(102, 231, 124);">n</span>
-                <span style="color: rgb(65, 121, 204);">d</span>
-                <span style="color: rgb(198, 230, 19);">o</span>
-                <span style="color: rgb(162, 96, 224);">o</span>
-            </h4>
+            <div style="text-align: center;">
+                <app-logo></app-logo>
+            </div>
             <h3>Sign in</h3>
             <p>Use your Fundoo Account</p>
         </div>
-        <form action="" fxLayout="column" fxLayoutAlign="start start" #loginForm=ngForm (ngSubmit)="onSubmit()">
+
+        <form action="" fxLayout="column" fxLayoutAlign="start start" #loginForm=ngForm (ngSubmit)="onSubmit()" *ngIf="!isLoading">
             <div class="alert alert-danger text-justify" [hidden]="!error">{{error}}</div>
             <mat-form-field appearance="outline" fxLayout="column" style="width: 100%;">
                 <mat-label>Enter your Email</mat-label>

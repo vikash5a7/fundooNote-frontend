@@ -14,4 +14,7 @@ export class UserService {
   public signIn(data: any) {
     return this.http.post(`${this.baseUrl}/user/login`, data);
   }
+  verifyUserByToken(token) {
+    return this.http.post(`${this.baseUrl}/user/verify/`, token);
+  }
 }

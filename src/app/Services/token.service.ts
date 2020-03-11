@@ -4,12 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TokenService {
-
+  public valideUser = false;
+  public loggedIn = false;
   constructor() { }
   public handle(token) {
     console.log('token is going to be set');
     this.set(token);
-    console.log('decoded form is ' + JSON.stringify(this.payLoad(token)));
   }
   // setting token in local
   set(token) {
@@ -23,18 +23,11 @@ export class TokenService {
   remove() {
     localStorage.removeItem('token');
   }
-  isValid() {
-    const token = this.get();
-    if (this.get()) {
-      const payload = this.payLoad(token);
-    }
+  logedIn(value: boolean) {
+   return this.loggedIn = value;
+
   }
-  payLoad(token) {
-    const payload = token.split('.')[1];
-    console.log('payload is : ' + payload);
-    return this.decode(payload);
-  }
-  decode(payload) {
-    return JSON.parse(atob(payload));
+  loggedStatus() {
+  return this.logedIn(this.loggedIn);
   }
 }

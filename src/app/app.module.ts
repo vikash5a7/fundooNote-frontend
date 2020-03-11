@@ -20,6 +20,8 @@ import { FundooDashboardComponent } from './fundoo-dashboard/fundoo-dashboard.co
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdatePasswordComponent } from './auth/update-password/update-password.component';
+import { SpinnerComponent } from './util/spinner/spinner.component';
+import { LogoComponent } from './util/logo/logo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,8 @@ import { UpdatePasswordComponent } from './auth/update-password/update-password.
     PagenotfoundComponent,
     FundooDashboardComponent,
     UpdatePasswordComponent,
+    SpinnerComponent,
+    LogoComponent,
   ],
   imports: [
     BrowserModule,
