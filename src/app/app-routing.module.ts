@@ -27,13 +27,13 @@ const routes: Routes = [
     path: 'forget-password', component: ForgotPasswordComponent, canActivate: [BeforeLoginService]
   },
   {
-    path: 'reset-password', component: ResetPasswordComponent, canActivate: [BeforeLoginService]
+    path: 'reset-password/:token', component: ResetPasswordComponent, canActivate: [BeforeLoginService]
   },
   {
     path: 'fundoo', component: FundooDashboardComponent, canActivate: [AfterLoginService]
   },
   {
-    path: 'update-password', component: UpdatePasswordComponent, canActivate: [BeforeLoginService]
+    path: 'update-password/:token', component: UpdatePasswordComponent, canActivate: [BeforeLoginService]
   },
   {
     path: '**',

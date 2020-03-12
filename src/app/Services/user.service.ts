@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,11 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/user/verify/`, token);
   }
   forgetPassword(data) {
-    return this.http.post('http://localhost:8080/user/forgotpassword', data);
+    return this.http.post(`${this.baseUrl}/user/forgotpassword`, data);
+  }
+  public updatePassword(updatePassword: any, token: string): Observable<any> {
+    return this.http.put(`${this.baseUrl}/user/update/${token}`,
+      updatePassword,
+    );
   }
 }

@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent implements OnInit {
+  public form = {
+    email: null,
+    password: null,
+    confirmPassword: null,
+    };
+    public error = null;
+    public isloading = false;
 
   constructor() { }
 
