@@ -7,7 +7,7 @@
         <h5>Create your Fundoo Account</h5>
         <br>
 
-        <!-- Validation of all the input -->
+        <!-- form  -->
         <form #regForm=ngForm (ngSubmit)="onSubmit(); regForm.resetForm();" *ngIf="!isloading">
             <div *ngIf="firstName.touched && !firstName.valid">
                 <div *ngIf="firstName.errors.minlength">
@@ -53,8 +53,11 @@
                     <small><mat-error>Password & Confirm Password does not match.</mat-error></small>
                 </div>
             </div>
+            <!-- Ending Validation of all the input -->
+
 
             <div class="example-container">
+                <!-- displaying error from backend -->
                 <div class="alert alert-danger text-justify" [hidden]="!error">{{error}}</div>
                 <mat-form-field appearance="outline">
                     <mat-label>Enter Your First name</mat-label>
@@ -94,7 +97,7 @@
                 <mat-label>Enter your Phone Number </mat-label>
                 <input #phoneNumber="ngModel" pattern="^[6-9]\d{9}$" [(ngModel)]="form.mobileNumber" minlength="10" maxlength="10" name="mobileNumber" matInput placeholder="Placeholder" required>
                 <mat-icon matSuffix>phone</mat-icon>
-                <mat-error>Enter valid phone number of 10 digit</mat-error>
+                <mat-error>Enter valid email </mat-error>
                 <mat-hint>Please enter valid number</mat-hint>
             </mat-form-field>
             <button [routerLink]="['/login']" mat-raised-button>Login</button>
