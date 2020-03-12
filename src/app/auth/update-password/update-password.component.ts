@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class UpdatePasswordComponent implements OnInit {
   public error = null;
-  public isloading = false;
+  public isLoading = false;
   token: string;
   public form = {
     email: null,
@@ -25,14 +25,13 @@ export class UpdatePasswordComponent implements OnInit {
 ) {
 }
 ngOnInit() {
-  this.isloading = true;
   this.activatedRoute.paramMap.subscribe((parameters: ParamMap) => {
   this.token = parameters.get('token');
   console.log(this.token);
   });
   }
 handleError(error) {
-  this.isloading = false;
+  this.isLoading = false;
   this.error = error.error.message;
   console.log(error);
   this.matSnakeBar.open(this.error, 'ok', {
@@ -40,15 +39,15 @@ handleError(error) {
 });
 }
 onSubmit() {
-  this.isloading = true;
+  this.isLoading = true;
   this.user.updatePassword(this.form, this.token).subscribe(
   data => this.handleResponse(data),
   error => this.handleError(error)
 );
 }
 handleResponse(data) {
-  this.isloading = false;
-  this.matSnakeBar.open('Sucessfull Registration Done ', 'ok', {
+  this.isLoading = false;
+  this.matSnakeBar.open('Sucessfull Update Password ', 'ok', {
   duration: 5000
   });
   this.route.navigateByUrl('\login');
