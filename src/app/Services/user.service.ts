@@ -17,4 +17,7 @@ export class UserService {
   verifyUserByToken(token) {
     return this.http.post(`${this.baseUrl}/user/verify/`, token);
   }
+  forgetPassword(data) {
+    return this.http.post('http://localhost:8080/user/forgotpassword', data);
+  }
 }
