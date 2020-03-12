@@ -14,9 +14,13 @@
             <div class="alert alert-danger text-justify" [hidden]="!error">{{error}}</div>
             <mat-form-field appearance="outline" fxLayout="column" style="width: 100%;">
                 <mat-label>Enter your Email</mat-label>
-                <input email required matInput type="email" placeholder="Email" [(ngModel)]="form.email" name="email">
+                <input email required matInput #emailId="ngModel" type="email" placeholder="Email" [(ngModel)]="form.email" name="email">
                 <mat-icon matSuffix>email</mat-icon>
-                <mat-hint>Enter Email</mat-hint>
+                <mat-hint>Enter Your email </mat-hint>
+                <mat-error>Email require</mat-error>
+                <mat-error *ngIf="emailId.invalid">Enter valid email</mat-error>
+
+
             </mat-form-field>
             <mat-form-field appearance="outline" style="width: 100%;">
                 <mat-label>Enter Password</mat-label>
@@ -24,7 +28,8 @@
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
-                <mat-hint>Enter valid password</mat-hint>
+                <mat-hint>Enter your password</mat-hint>
+                <mat-error>password Required</mat-error>
             </mat-form-field>
             <button [routerLink]="['/registration']" class="lognBtn" mat-raised-button type="button" fxFlexAlign="start">Create Account</button>
             <button mat-raised-button type="submit" fxFlexAlign="end" color="primary" [disabled]="!loginForm.valid" type="submit">Login</button>
