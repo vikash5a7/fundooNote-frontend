@@ -22,8 +22,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdatePasswordComponent } from './auth/update-password/update-password.component';
 import { SpinnerComponent } from './util/spinner/spinner.component';
 import { LogoComponent } from './util/logo/logo.component';
+import { MatMenuModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { LayoutModule } from '@angular/cdk/layout';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +43,7 @@ import { MatSnackBarModule } from '@angular/material';
     UpdatePasswordComponent,
     SpinnerComponent,
     LogoComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,13 @@ import { MatSnackBarModule } from '@angular/material';
     FormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatGridListModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

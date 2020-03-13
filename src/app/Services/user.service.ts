@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private  baseUrl = 'http://localhost:8080';
+  private  baseUrl = environment.USER_API_URL;
   constructor(private http: HttpClient ) { }
 
  public signUp(data: any) {

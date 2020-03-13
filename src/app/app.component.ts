@@ -1,3 +1,4 @@
+import { TokenService } from './Services/token.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private tokenService: TokenService) { }
+  public signedStatus = this.tokenService.loggedIn;
 }
