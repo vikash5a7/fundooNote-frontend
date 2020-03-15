@@ -27,7 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { LayoutModule } from '@angular/cdk/layout';
-import { NavbarComponent } from './fundoo-dashboard/navbar/navbar.component';
+import { NavbarComponent } from './fundoo-dashboard/navbarandsidebar/navbar.component';
 import { MatAutocompleteModule } from '@angular/material';
 import { MatOptionModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';

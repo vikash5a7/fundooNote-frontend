@@ -13,19 +13,20 @@ export class TokenService {
   }
   // setting token in local
   set(token) {
-    sessionStorage.setItem('token', token);
+    localStorage.setItem('token', token);
   }
   // getting token from the local storage
   get() {
-   return sessionStorage.getItem('token');
+   return localStorage.getItem('token');
   }
   // Removing item from the local storage
   remove() {
-    sessionStorage.removeItem('token');
+    localStorage.removeItem('token');
   }
   logedIn(value: boolean) {
-   return this.loggedIn = value;
-
+  if ( this.get() != null) {
+    return this.loggedIn = true;
+  }
   }
   loggedStatus() {
   return this.logedIn(this.loggedIn);

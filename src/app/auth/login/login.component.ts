@@ -52,19 +52,4 @@ export class LoginComponent implements OnInit {
     });
     this.route.navigateByUrl('/fundoo');
   }
-  isValideUser() {
-  this.tokenValue = this.token.get();
-  this.user.verifyUserByToken(this.tokenValue).subscribe(
-    data => this.hadlseUserVeriFyResponse(data),
-    error => this.handldeUserverfyError(error)
-    );
-  }
-  hadlseUserVeriFyResponse(data) {
-    if (data.statusCode === 200) {
-      this.token.valideUser = true;
-    }
-  }
-  handldeUserverfyError(error) {
-    this.error = error.error.message;
-  }
 }

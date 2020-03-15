@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <div>
+        <mat-toolbar role="banner" class="fixed-top" style="background-color:rgba(255,255,255,1)">
+            <button class="menuButton" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+            <mat-icon  aria-label="Side nav toggle icon">menu</mat-icon>
+             </button>
+            <div style="margin-left: 10px;"><img src="assets/googlekeepicon.png" alt="Icon"></div>
+            <div style="margin-left: 15px;">
+                <app-logo></app-logo>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex.xs="70" fxFlex="70" class="search">
+                <button mat-icon-button fxHide.xs="true">
+            <mat-icon>search</mat-icon>
+          </button>
+                <input matTooltip="Search" placeholder="Search" class="input" />
+            </div>
+            <div id="refresh" fxLayout="row">
+                <button mat-icon-button matTooltip="refresh" (click)="refreshButton()">
+                  <mat-icon>refresh</mat-icon>
+                </button>
+            </div>
+            <div class="setting">
+                <button mat-icon-button matTooltip="settings">
+                  <mat-icon>settings</mat-icon>
+                </button>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="8" fxLayoutGap="10px">
+                <button mat-icon-button *ngIf="!grid" matTooltip="List view" (click)="onClickView()">
+              <mat-icon>view_stream</mat-icon>
+            </button>
+                <button mat-icon-button *ngIf="grid" matTooltip="Grid view" (click)="onClickView()">
+              <mat-icon>view_module</mat-icon>
+            </button>
+            </div>
+            <div class="imageIcon">
+                <img mat-icon-button [matMenuTriggerFor]="menu" src="assets/default.png" alt="default pic">
+            </div>
+            <mat-menu #menu="matMenu" yPosition="below">
+                <button mat-menu-item>
+                  <div class="profilepic">
+                    <img mat-icon-button src="assets/default.png" alt="default pic">
+                  </div>
+                </button>
+                <br>
+                <mat-divider></mat-divider>
+                <br>
+                <button id="btnforprofile" mat-stroked-button color="primary">Change</button>
+                <br>
+                <br>
+                <mat-divider></mat-divider>
+                <br>
+                <p style="padding-left: 5%; margin-top: 5px; text-align: center;">Vikash kumar</p>
+
+                <mat-divider></mat-divider>
+                <br>
+                <button id="btnforprofile" mat-raised-button (click)="logout($event)">Logout</button>
+            </mat-menu>
+        </mat-toolbar>
+    </div>
+
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav mode="side" #drawer class="sidenav">
+            <mat-nav-list>
+                <div mat-list-item>
+                    <div #btnNotes>
+                        <button mat-button id="sidenav-button">
+                          <mat-icon id="sidenav-icon">lightbulb_outline</mat-icon>Notes </button>
+                    </div>
+                </div>
+                <div>
+                    <button mat-button id="sidenav-button">
+                      <mat-icon id="sidenav-icon">notifications_none</mat-icon>Reminders
+                    </button>
+                </div>
+                <mat-divider></mat-divider>
+            </mat-nav-list>
+        </mat-sidenav>
+
+    </mat-sidenav-container>
+</body>
+
+</html>
