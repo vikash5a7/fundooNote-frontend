@@ -1,3 +1,4 @@
+import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class CreateNoteComponent implements OnInit {
   open = false;
   isPinned = false;
+  noteDetails: FormGroup;
   constructor() { }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <mat-card class="matinputbox" *ngIf="!open" (click)="onClickCreateNoteOpen()" fxLayout="row">
         <input style="  width: 493px; margin: 2px; border: antiquewhite;padding: 2px;" matInput class="searchBar" placeholder="Take a note...">
     </mat-card>
