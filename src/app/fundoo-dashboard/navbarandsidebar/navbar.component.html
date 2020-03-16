@@ -82,10 +82,29 @@
                     </button>
                 </div>
                 <mat-divider></mat-divider>
+                <div class="labels-button">
+                    <div id="label_name"> Labels</div>
+                </div>
+                <div class="archive-trash-container" fxLayout="column">
+                    <div>
+                        <button mat-button id="sidenav-button">
+                      <mat-icon id="sidenav-icon">archive</mat-icon>
+                      Archive
+                    </button>
+                    </div>
+                </div>
+                <div>
+                    <button mat-button id="sidenav-button">
+                      <mat-icon id="sidenav-icon">delete</mat-icon>Trash
+                    </button>
+                </div>
             </mat-nav-list>
         </mat-sidenav>
-
+        <div class="noteCreate">
+            <app-create-note></app-create-note>
+        </div>
     </mat-sidenav-container>
+
 </body>
 
 </html>
