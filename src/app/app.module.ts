@@ -34,6 +34,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { CreateNoteComponent } from './fundoo-dashboard/create-note/create-note.component';
+import { IconsComponent } from './fundoo-dashboard/icons/icons.component';
+import { MatTooltipModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +50,7 @@ import { CreateNoteComponent } from './fundoo-dashboard/create-note/create-note.
     LogoComponent,
     NavbarComponent,
     CreateNoteComponent,
+    IconsComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +76,7 @@ import { CreateNoteComponent } from './fundoo-dashboard/create-note/create-note.
     MatRadioModule,
     MatOptionModule,
     MatAutocompleteModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

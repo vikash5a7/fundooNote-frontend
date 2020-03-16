@@ -4,17 +4,21 @@
     </mat-card>
     <mat-card class="box" *ngIf="open" fxLayout="column">
         <div id="pindiv">
-            <!-- <app-pin-notes id="pin"></app-pin-notes> -->
             <a><img id="pin" src="assets/icon/unpin.svg" *ngIf="!isPinned" (click)="isPinned=!isPinned" /></a>
             <a><img id="pin" src="assets/icon/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned" /></a>
-
         </div>
-
         <input style="border: aliceblue;text-decoration-style: double;" matInput type="text" required placeholder="Title">
         <input style=" height: 40px; border: aliceblue;text-decoration-style: double;" matInput type="text" required placeholder="Take a note...">
         <div class="icon">
-
-            <div class="div-button" button (click)="onSubmit()"><button style="border: none; padding-right: 45px;">Close</button></div>
+            <div style="display: flex;" fxLayout="row ">
+                <app-icons></app-icons>
+                <div class="div-button" button (click)="onSubmit()">
+                    <button style=" opacity: 0.6;
+                    transition: 0.3s;
+                    outline: 0;
+                    cursor: pointer;border: none;padding-top: 5px; padding-left: 25px; text-decoration: none; background-color: white; ">Close
+                </button></div>
+            </div>
         </div>
     </mat-card>
 </div>
