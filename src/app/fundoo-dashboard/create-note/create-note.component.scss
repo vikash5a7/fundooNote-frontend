@@ -5,3 +5,28 @@
     margin-top: 4%;
     margin-bottom: 4%;
 }
+
+.matinputbox {
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 4px 1px 0px, rgba(0, 0, 0, 0.1) 0px 2px 2px 1px;
+    border-radius: 10px;
+    padding: 7px;
+    width: 32em;
+    border-radius: 13px gray;
+}
+
+.box {
+    border-radius: 16px;
+    padding: 25px;
+    width: 31em;
+    flex-direction: column;
+    box-sizing: border-box;
+    display: flex;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#pindiv {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: flex-end;
+}

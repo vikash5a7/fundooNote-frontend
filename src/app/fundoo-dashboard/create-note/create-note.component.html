@@ -1,5 +1,20 @@
 <div class="main">
-    <mat-card style=" padding: 7px; width: 32em;border-radius: 13px gray; " *ngIf="!open" (click)="onClickCreateNoteOpen()" fxLayout="row">
-        <input style="width: 493px;border: antiquewhite;padding: 2px;" matInput class="searchBar" placeholder="Take a note...">
+    <mat-card class="matinputbox" *ngIf="!open" (click)="onClickCreateNoteOpen()" fxLayout="row">
+        <input style="  width: 493px; margin: 2px; border: antiquewhite;padding: 2px;" matInput class="searchBar" placeholder="Take a note...">
+    </mat-card>
+    <mat-card class="box" *ngIf="open" fxLayout="column">
+        <div id="pindiv">
+            <!-- <app-pin-notes id="pin"></app-pin-notes> -->
+            <a><img id="pin" src="assets/icon/unpin.svg" *ngIf="!isPinned" (click)="isPinned=!isPinned" /></a>
+            <a><img id="pin" src="assets/icon/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned" /></a>
+
+        </div>
+
+        <input style="border: aliceblue;text-decoration-style: double;" matInput type="text" required placeholder="Title">
+        <input style=" height: 40px; border: aliceblue;text-decoration-style: double;" matInput type="text" required placeholder="Take a note...">
+        <div class="icon">
+
+            <div class="div-button" button (click)="onSubmit()"><button style="border: none; padding-right: 45px;">Close</button></div>
+        </div>
     </mat-card>
 </div>
