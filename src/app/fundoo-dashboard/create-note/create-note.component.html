@@ -4,8 +4,13 @@
     </mat-card>
     <mat-card class="box" *ngIf="open" fxLayout="column">
         <div id="pindiv">
+<<<<<<< HEAD
             <a><img id="pin" src="assets/icon/unpin.svg" *ngIf="!isPin" (click)="isPin=!isPin" /></a>
             <a><img id="isPinned" src="assets/icon/pinned.svg" *ngIf="isPin" (click)="isPin=!isPin" /></a>
+=======
+            <a><img id="pin" src="assets/icon/unpin.svg" *ngIf="!note.isPinned" (click)="note.isPinned=!note.isPinned" /></a>
+            <a><img [(ngModel)]="note.isPinned" id="pin" src="assets/icon/pinned.svg" *ngIf="note.isPinned" (click)="note.isPinned=!note.isPinned" /></a>
+>>>>>>> a5928b84ce22d66ced61c6450f73f95b6840be76
         </div>
         <input [(ngModel)]="note.title" id="title" style="border:  aliceblue;text-decoration-style: double;" matInput type="text" placeholder="Title">
         <input [(ngModel)]="note.description" id="desc" style=" height: 40px; border: aliceblue;text-decoration-style: double;" matInput type="text" placeholder="Take a note...">
