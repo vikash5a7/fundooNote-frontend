@@ -12,11 +12,11 @@ export class TokenService {
     this.set(token);
   }
   // setting token in local
-  set(token) {
+  public set(token) {
     localStorage.setItem('token', token);
   }
   // getting token from the local storage
-  get() {
+ public get() {
    return localStorage.getItem('token');
   }
   // Removing item from the local storage

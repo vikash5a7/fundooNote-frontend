@@ -1,4 +1,4 @@
-<div class="main" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<div class="main">
     <mat-card class="matinputbox" *ngIf="!open" (click)="onClickCreateNoteOpen()" fxLayout="row">
         <input style="  width: 493px; margin: 2px; border: antiquewhite;padding: 2px;" matInput class="searchBar" placeholder="Take a note...">
     </mat-card>
@@ -7,8 +7,8 @@
             <a><img id="pin" src="assets/icon/unpin.svg" *ngIf="!isPinned" (click)="isPinned=!isPinned" /></a>
             <a><img id="pin" src="assets/icon/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned" /></a>
         </div>
-        <input style="border: aliceblue;text-decoration-style: double;" matInput type="text" required placeholder="Title">
-        <input style=" height: 40px; border: aliceblue;text-decoration-style: double;" matInput type="text" required placeholder="Take a note...">
+        <input [(ngModel)]="note.title" id="title" style="border:  aliceblue;text-decoration-style: double;" matInput type="text" placeholder="Title">
+        <input [(ngModel)]="note.description" id="desc" style=" height: 40px; border: aliceblue;text-decoration-style: double;" matInput type="text" placeholder="Take a note...">
         <div class="icon">
             <div style="display: flex;" fxLayout="row ">
                 <app-icons></app-icons>
