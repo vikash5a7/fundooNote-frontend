@@ -12,14 +12,6 @@ export class NoteService {
   private httpOtions = {
     headers: new HttpHeaders({ 'content-type': 'application/json' })
   };
-  // createNote(note: any, token: any): Observable<any> {
-  //   console.log(`${environment.notesApiURL}/${environment.createNote}`);
-  // tslint:disable-next-line: max-line-length
-  //   return this.httpservice.post(`${environment.notesApiURL}/${environment.createNote}`, note, { headers: new HttpHeaders().set('token', sessionStorage.token) }).pipe(tap(() => {
-  //     this._autoRefresh$.next();
-  //   }));
-  // }
-
 public createNote(note: any): Observable<any> {
       return this.http.post(`${this.baseUrl}/note/create`,
       note, {
