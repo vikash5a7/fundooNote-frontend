@@ -30,6 +30,9 @@ export class CreateNoteComponent implements OnInit {
     this.open = true;
   }
 
+
+
+
   onSubmit() {
     this.open = false;
     if (this.note.description != null) {

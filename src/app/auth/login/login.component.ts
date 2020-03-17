@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
    );
   }
   handleResponse(data) {
-    console.log(data);
     this.token.handle(data.token);
     this.isLoading = false;
     this.token.logedIn(true);
