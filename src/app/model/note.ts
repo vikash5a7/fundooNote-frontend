@@ -3,7 +3,7 @@ export class Note {
  title: string;
  description: string;
  isTrashed: boolean ;
- isPinned: false;
+ pinned: boolean;
  isArchieved: boolean ;
  colour: string ;
  reminder: string ;

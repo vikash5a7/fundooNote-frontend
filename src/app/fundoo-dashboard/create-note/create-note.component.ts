@@ -13,7 +13,7 @@ import { TokenService } from '../../Services/token.service';
 })
 export class CreateNoteComponent implements OnInit {
   open = false;
-  isPinned = false;
+  isPin = false;
   note: Note = new Note();
   tokenValue = null;
   error = null;
@@ -30,15 +30,13 @@ export class CreateNoteComponent implements OnInit {
     this.open = true;
   }
 
-
-
-
   onSubmit() {
     this.open = false;
     if (this.note.description != null) {
       this.tokenValue = localStorage.getItem('token');
       console.log(this.note);
       console.log(this.tokenValue);
+      this.note.pinned = this.isPin;
       this.noteService.createNote(this.note).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
