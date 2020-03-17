@@ -29,6 +29,9 @@ export class LoginComponent implements OnInit {
   handleError(error: { error: any; }) {
     this.isLoading = false;
     this.error = error.error.message;
+    if ( error.error.status === 0) {
+      console.log('please connect database');
+    }
     this.matSnackBar.open(this.error, 'ok', {
       duration: 5000
     });
@@ -44,6 +47,7 @@ export class LoginComponent implements OnInit {
    );
   }
   handleResponse(data) {
+    console.log(data);
     this.token.handle(data.token);
     this.isLoading = false;
     this.token.logedIn(true);

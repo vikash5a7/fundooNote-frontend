@@ -26,6 +26,9 @@ export class NavbarComponent {
   onClickView() {
     this.grid = !this.grid;
   }
+  refresh(): void {
+    window.location.reload();
+}
   logout(event: MouseEvent) {
     console.log('loggout function called');
     event.preventDefault();

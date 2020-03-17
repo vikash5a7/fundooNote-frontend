@@ -98,7 +98,7 @@
                 <input #phoneNumber="ngModel" pattern="^[6-9]\d{9}$" [(ngModel)]="form.mobileNumber" minlength="10" maxlength="10" name="mobileNumber" matInput placeholder="Placeholder" required>
                 <mat-icon matSuffix>phone</mat-icon>
                 <mat-error>Enter valid email </mat-error>
-                <mat-hint>Please enter valid number</mat-hint>
+                <mat-hint>Please enter valid email</mat-hint>
             </mat-form-field>
             <button [routerLink]="['/login']" mat-raised-button>Login</button>
             <br>
