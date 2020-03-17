@@ -30,3 +30,7 @@
     display: flex;
     justify-content: flex-end;
 }
+
+input:focus {
+    outline: none;
+}
