@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Note } from '../model/note';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,12 @@ import { Note } from '../model/note';
 export class NoteService {
   private baseUrl = environment.USER_API_URL;
   note: Note = new Note();
+  private notesList = new Subject<any>();
+  // tslint:disable-next-line: variable-name
+  private _autoRefresh$ = new Subject();
+  get autoRefresh$() {
+    return this._autoRefresh$;
+  }
   constructor(private http: HttpClient, ) { }
   private httpOtions = {
     headers: new HttpHeaders({ 'content-type': 'application/json' })
@@ -18,7 +25,9 @@ export class NoteService {
     return this.http.post(`${this.baseUrl}/note/create`,
       note, {
       headers: new HttpHeaders().set('token', localStorage.getItem('token'))
-    });
+    }).pipe(tap(() => {
+      this._autoRefresh$.next();
+    }));
   }
   public getAllNotes(): Observable<any> {
     return this.http.get(`${this.baseUrl}/note/fetchNote`,
