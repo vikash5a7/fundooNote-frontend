@@ -1,0 +1,37 @@
+<div style="flex-wrap: wrap; ">
+    <div class="getAllNotes" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 15%;flex-wrap: wrap;">
+        <mat-card class="getNotesMat" *ngFor="let note of notes">
+            <div class="tile">
+                {{note.title}}
+            </div>
+            <div class="Des">
+                {{note.description}}
+            </div>
+            <div>
+                <div class="inconList">
+                    <a><img src="assets/icon/remainder.svg" (click)="open(note.id)" matTooltip="Add Reminder"></a>
+                    <a id="icons"><img src="assets/icon/collab.svg" matTooltip="Collabrator "></a>
+                    <a id="icons"><img src="assets/icon/colorpalate.svg" [matMenuTriggerFor]="colorlist" matTooltip="Add Color"></a>
+                    <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+                        <ng-template matMenuContent>
+                            <div>
+                                <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px" *ngFor="let colors of arrayOfColors">
+                                    <div *ngFor="let color of colors">
+                                        <a [ngStyle]="{ 'background-color': color.color }" (click)="setColor((color.color))" matTooltip="{{ color.name }}" mat-mini-fab></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </mat-menu>
+                    <a id="icons" href="#"><img src="assets/icon/addImage.svg" matTooltip="Add Image"></a>
+                    <img id="icons" src="assets/icon/archive-24px.svg" (click)="onClickArchive(note.isArchive,note.isPin)" matTooltip="Archive">
+                    <a id="icons"><img mat-icon-button [matMenuTriggerFor]="menu" style="height: 1.5em; width: 2em;" src="assets/icon/more.svg" (click)="onclicksetNoteid(note.id)" matTooltip="More"></a>
+                    <mat-menu #menu="matMenu">
+                        <button style="outline: 0;" mat-menu-item>Delete Note</button>
+                        <button mat-menu-item>Add Label</button>
+                    </mat-menu>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

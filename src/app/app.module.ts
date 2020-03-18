@@ -36,6 +36,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { CreateNoteComponent } from './fundoo-dashboard/create-note/create-note.component';
 import { IconsComponent } from './fundoo-dashboard/icons/icons.component';
 import { MatTooltipModule } from '@angular/material';
+import { DisplayNoteComponent } from './fundoo-dashboard/display-note/display-note.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { MatTooltipModule } from '@angular/material';
     NavbarComponent,
     CreateNoteComponent,
     IconsComponent,
+    DisplayNoteComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,4 +20,10 @@ export class NoteService {
       headers: new HttpHeaders().set('token', localStorage.getItem('token'))
     });
   }
+  public getAllNotes(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/note/fetchNote`,
+    {
+      headers : new HttpHeaders().set('token', localStorage.getItem('token'))
+    });
+  }
 }
