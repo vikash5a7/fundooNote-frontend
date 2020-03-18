@@ -37,6 +37,8 @@ import { CreateNoteComponent } from './fundoo-dashboard/create-note/create-note.
 import { IconsComponent } from './fundoo-dashboard/icons/icons.component';
 import { MatTooltipModule } from '@angular/material';
 import { DisplayNoteComponent } from './fundoo-dashboard/display-note/display-note.component';
+import { IconlistComponent } from './fundoo-dashboard/iconlist/iconlist.component';
+import { PinnedNoteDisplayComponent } from './fundoo-dashboard/pinned-note-display/pinned-note-display.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +55,8 @@ import { DisplayNoteComponent } from './fundoo-dashboard/display-note/display-no
     CreateNoteComponent,
     IconsComponent,
     DisplayNoteComponent,
+    IconlistComponent,
+    PinnedNoteDisplayComponent,
   ],
   imports: [
     BrowserModule,
