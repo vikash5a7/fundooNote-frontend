@@ -10,9 +10,13 @@ import { Note } from 'src/app/model/note';
 export class DisplayNoteComponent implements OnInit {
   isPin = false;
   notes: [];
-  getAllNotes: [];
+  getAllNotess: [];
   note: Note = new Note();
-  constructor( private noteService: NoteService) { }
+  constructor( private noteService: NoteService) {
+    this.noteService.autoRefresh$.subscribe(() => {
+      this.getAllNotes();
+    });
+   }
   arrayOfColors = [
     [
       { color: 'rgb(255, 179, 255)', name: 'pink' },
@@ -31,6 +35,10 @@ export class DisplayNoteComponent implements OnInit {
     ]
   ];
   ngOnInit() {
+    this.getAllNotes();
+  }
+
+  getAllNotes() {
     this.noteService.getAllNotes().subscribe((response: any) => {
       console.log(response);
       console.log('note are the-- ' + response.obj);
