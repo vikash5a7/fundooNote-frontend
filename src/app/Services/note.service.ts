@@ -22,6 +22,7 @@ export class NoteService {
     headers: new HttpHeaders({ 'content-type': 'application/json' })
   };
   public createNote(note: any): Observable<any> {
+    console.log('create note is ' + this.note);
     return this.http.post(`${this.baseUrl}/note/create`,
       note, {
       headers: new HttpHeaders().set('token', localStorage.getItem('token'))
