@@ -1,26 +1,26 @@
     .sidenav-container {
         height: 100%;
     }
-    
+
     .sidenav {
         padding-top: 60px;
         width: 250px;
         position: fixed;
     }
-    
+
     .sidenav .mat-toolbar {
         background: inherit;
     }
-    
+
     .tool {
         box-shadow: 0px 7px 15px rgba(255, 255, 255, 1);
         color: "WHITE";
     }
-    
+
     #refresh {
         padding: 20px;
     }
-    
+
     .search {
         background-color: rgba(230, 227, 227, 0.856);
         padding: 3px;
@@ -28,18 +28,18 @@
         border-radius: 8px;
         margin-left: 57px;
     }
-    
+
     .input {
         width: 88%;
         font-size: 16px;
         border: none !important;
         background-color: rgba(230, 227, 227, 0.856);
     }
-    
+
     input.input:focus {
         outline-width: 0;
     }
-    
+
     #sidenav-button {
         padding-top: 5%;
         margin-top: 8px;
@@ -48,7 +48,7 @@
         width: 247px;
         height: 55px;
     }
-    
+
     #sidenav-icon {
         padding-left: 38px;
         padding-right: 47px;
@@ -56,15 +56,15 @@
         justify-content: center;
         display: inline-flex;
     }
-    
+
     .menuButton {
         margin-left: 10px;
     }
-    
+
     .mat-button:focus {
         background-color: rgba(252, 222, 142, 0.5);
     }
-    
+
     .imageIcon {
         img {
             margin-top: 10%;
@@ -74,7 +74,7 @@
             display: block;
         }
     }
-    
+
     .profilepic {
         img {
             margin-bottom: 800px;
@@ -84,25 +84,25 @@
             display: block;
         }
     }
-    
+
     .mat-menu-item {
         margin-top: 20px;
         width: 200px;
     }
-    
+
     #btnforprofile {
         margin-left: 60px;
     }
-    
+
     button:focus {
         outline: 0;
     }
-    
+
     button.launch:hover {
         cursor: pointer;
         background-color: #FABD44;
     }
-    
+
     .noteCreate {
-        padding-top: 50px;
+        padding-top: 1px;
     }
