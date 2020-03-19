@@ -14,15 +14,15 @@ export class PinnedNoteDisplayComponent implements OnInit {
   note: Note = new Note();
   constructor( private noteService: NoteService) {
     this.noteService.autoRefresh$.subscribe(() => {
-      this.getAllNotes();
+      this.getAllPinnedNotes();
     });
    }
   ngOnInit() {
-    this.getAllNotes();
+    this.getAllPinnedNotes();
   }
 
-  getAllNotes() {
-    this.noteService.getAllNotes().subscribe((response: any) => {
+  getAllPinnedNotes() {
+    this.noteService.getAllPinnedNotes().subscribe((response: any) => {
       console.log(response);
       console.log('note are the-- ' + response.obj);
       this.notes = response.obj;
