@@ -59,12 +59,12 @@
         </div>
     </div>
 
-    <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav-container class="sidenav-container" style="background-color: white;">
         <mat-sidenav mode="side" #drawer class="sidenav">
             <mat-nav-list>
                 <div mat-list-item>
                     <div #btnNotes>
-                        <button mat-button id="sidenav-button">
+                        <button mat-button id="sidenav-button" (click)="noteDisplay($event)">
                           <mat-icon id="sidenav-icon">lightbulb_outline</mat-icon>Notes </button>
                     </div>
                 </div>

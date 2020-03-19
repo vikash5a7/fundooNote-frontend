@@ -36,4 +36,7 @@ export class NavbarComponent {
     this.token.logedIn(false);
     this.route.navigateByUrl('/login');
   }
+  noteDisplay(event: MouseEvent) {
+    console.log('note display called');
+  }
 }

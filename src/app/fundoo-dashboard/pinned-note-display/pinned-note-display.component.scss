@@ -1,8 +1,11 @@
 .getNotesMat {
     width: 220px;
+    border-style: solid;
+    border-width: 0.5px;
     min-height: 100px;
+    opacity: initial;
+    border-color: #e2dfdf;
     border-radius: 15px;
-    box-shadow: 0px 1px 6px 0px;
     margin: 10px;
 }
 
@@ -23,11 +26,11 @@
     padding-left: 130px;
 }
 
-.showme :target {
+.showme {
     display: none;
 }
 
-.showhim:target .showme {
+.showhim:hover .showme {
     display: block;
 }
 

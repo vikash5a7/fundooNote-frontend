@@ -9,6 +9,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { UpdatePasswordComponent } from './auth/update-password/update-password.component';
 import { BeforeLoginService } from './Services/before-login.service';
 import { AfterLoginService } from './Services/after-login.service';
+import { NoteComponent } from './fundoo-dashboard/note/note.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,7 @@ const routes: Routes = [
     path: 'fundoo', component: FundooDashboardComponent, canActivate: [AfterLoginService]
   },
   {
-    path: 'update-password/:token', component: UpdatePasswordComponent, canActivate: [BeforeLoginService]
+    path: 'note', component: NoteComponent, canActivate: [AfterLoginService]
   },
   {
     path: '**',
