@@ -27,13 +27,23 @@
         width: 190%;
         border-radius: 8px;
         margin-left: 57px;
+        flex-direction: row;
+        box-sizing: border-box;
+        display: flex;
+        place-content: center;
+        align-items: center;
+        max-width: 70%;
+        border-style: groove;
+        background-color: white;
+        border-width: 1px;
+        border-radius: 14px;
     }
 
     .input {
         width: 88%;
         font-size: 16px;
         border: none !important;
-        background-color: rgba(230, 227, 227, 0.856);
+        background-color: rgba(255, 255, 255, 0.856);
     }
 
     input.input:focus {

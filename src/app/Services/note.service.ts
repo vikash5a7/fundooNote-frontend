@@ -36,10 +36,21 @@ export class NoteService {
       headers : new HttpHeaders().set('token', localStorage.getItem('token'))
     });
   }
+
   public getAllPinnedNotes(): Observable<any> {
     return this.http.get(`${this.baseUrl}/note/fetchpinnednote`,
     {
       headers : new HttpHeaders().set('token', localStorage.getItem('token'))
     });
   }
+
+  public addColor(id,colour)
+  {
+    return this.http.get(`${this.baseUrl}/note/addColour`,
+    {
+      headers : new HttpHeaders().set('token', localStorage.getItem('token'))
+    });
+  }
+
+
 }
