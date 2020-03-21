@@ -64,7 +64,7 @@
             <mat-nav-list>
                 <div mat-list-item>
                     <div #btnNotes>
-                        <button mat-button id="sidenav-button" (click)="noteDisplay($event)">
+                        <button mat-button id="sidenav-button" [routerLink]="['/dashboard/notes']">
                           <mat-icon id="sidenav-icon">lightbulb_outline</mat-icon>Notes </button>
                     </div>
                 </div>

@@ -31,10 +31,10 @@ const routes: Routes = [
     path: 'reset-password/:token', component: ResetPasswordComponent, canActivate: [BeforeLoginService]
   },
   {
-    path: 'fundoo', component: FundooDashboardComponent, canActivate: [AfterLoginService]
+    path: 'dashboard/notes', component: FundooDashboardComponent, canActivate: [AfterLoginService]
   },
   {
-    path: 'note', component: NoteComponent, canActivate: [AfterLoginService]
+    path: 'notes', component: NoteComponent, canActivate: [AfterLoginService]
   },
   {
     path: '**',

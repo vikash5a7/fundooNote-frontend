@@ -39,4 +39,10 @@ export class IconlistComponent implements OnInit {
       this.snackBar.open("color Changed", "OK", { duration: 3000 });
     })
   }
+  deleteNote(id) {
+    console.log('deleting note--->>' + id);
+    this.noteService.deleteNote(id).subscribe(res => {
+      this.snackBar.open("Note is trashed", "OK", { duration: 3000 });
+    })
+  }
 }

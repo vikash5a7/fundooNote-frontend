@@ -50,6 +50,11 @@ export class NoteService {
       this._autoRefresh$.next();
     }));
   }
-
-
+  deleteNote(id){
+    return this.http.delete(`${this.baseUrl}/note/delete/${id}`, {
+      headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+    }).pipe(tap(() => {
+      this._autoRefresh$.next();
+    }));
+    }
 }
