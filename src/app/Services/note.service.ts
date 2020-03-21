@@ -44,12 +44,11 @@ export class NoteService {
     });
   }
 
-  public addColor(id,colour)
-  {
-    return this.http.get(`${this.baseUrl}/note/addColour`,
-    {
-      headers : new HttpHeaders().set('token', localStorage.getItem('token'))
-    });
+  addColor(noteId,color){
+    return this.http.post(`${this.baseUrl}/note/addColour?noteId=${noteId}&colour=${color}`,{},
+     { headers: new HttpHeaders().set('token', localStorage.getItem('token')) }).pipe(tap(() => {
+      this._autoRefresh$.next();
+    }));
   }
 
 

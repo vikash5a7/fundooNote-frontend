@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Note } from 'src/app/model/note';
 import { NoteService } from 'src/app/Services/note.service';
 import { MatSnackBar } from '@angular/material';
@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./iconlist.component.scss']
 })
 export class IconlistComponent implements OnInit {
-  note = new Note();
+  @Input() note: Note;
   constructor( private noteService: NoteService,
     private snackBar : MatSnackBar) { }
   arrayOfColors = [
@@ -35,8 +35,8 @@ export class IconlistComponent implements OnInit {
   setColor(color) {
     console.log("Color---->", color, this.note.id);
     console.log('note id--->' ,this.note.id);
-    // this.noteService.addColor(this.note.id, color).subscribe(res => {
-    //   this.snackBar.open("color Changed", "OK", { duration: 3000 });
-    // })
+    this.noteService.addColor(this.note.id, color).subscribe(res => {
+      this.snackBar.open("color Changed", "OK", { duration: 3000 });
+    })
   }
 }
