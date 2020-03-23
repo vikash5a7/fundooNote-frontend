@@ -1,6 +1,7 @@
 import { NoteService } from '../../Services/note.service';
 import { Component, OnInit } from '@angular/core';
 import { Note } from 'src/app/model/note';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-display-note',
@@ -12,28 +13,12 @@ export class DisplayNoteComponent implements OnInit {
   notes: [];
   getAllNotess: [];
   note: Note = new Note();
-  constructor( private noteService: NoteService) {
+  constructor( private noteService: NoteService,
+                private snackBar: MatSnackBar) {
     this.noteService.autoRefresh$.subscribe(() => {
       this.getAllNotes();
     });
    }
-  arrayOfColors = [
-    [
-      { color: 'rgb(255, 179, 255)', name: 'pink' },
-      { color: 'rgb(255, 255, 128)', name: 'darkGolden' },
-      { color: 'white', name: 'white' }
-    ],
-    [
-      { color: 'slategray', name: 'grey' },
-      { color: 'rgb(153, 221, 255)', name: 'light blue' },
-      { color: 'rgb(200, 232, 104)', name: 'yellow' }
-    ],
-    [
-      { color: 'rgb(255, 153, 0)', name: 'orange' },
-      { color: 'rgb(97, 191, 82)', name: 'green' },
-      { color: ' rgb(158, 136, 191)', name: 'darkYellow' }
-    ]
-  ];
   ngOnInit() {
     this.getAllNotes();
   }
@@ -45,5 +30,13 @@ export class DisplayNoteComponent implements OnInit {
       this.notes = response.obj;
       console.log('Notes: ', this.notes);
     });
+  }
+  pinned(id)
+  {
+    console.log('pinning.........');
+    console.log('id is '+ id);
+    this.noteService.pinnedNotes(id).subscribe(res => {
+      this.snackBar.open('Note are pinned', "OK", { duration: 3000 });
+    })
   }
 }

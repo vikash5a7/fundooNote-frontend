@@ -53,6 +53,6 @@ export class LoginComponent implements OnInit {
     this.matSnackBar.open('Sucessfully Login', 'ok', {
       duration: 5000
     });
-    this.route.navigateByUrl('/dashboard');
+    this.route.navigateByUrl('dashboard/notes');
   }
 }

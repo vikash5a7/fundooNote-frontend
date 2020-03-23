@@ -40,6 +40,7 @@ import { DisplayNoteComponent } from './fundoo-dashboard/display-note/display-no
 import { IconlistComponent } from './fundoo-dashboard/iconlist/iconlist.component';
 import { PinnedNoteDisplayComponent } from './fundoo-dashboard/pinned-note-display/pinned-note-display.component';
 import { NoteComponent } from './fundoo-dashboard/note/note.component';
+import { TrashComponent } from './fundoo-dashboard/trash/trash.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { NoteComponent } from './fundoo-dashboard/note/note.component';
     IconlistComponent,
     PinnedNoteDisplayComponent,
     NoteComponent,
+    TrashComponent,
   ],
   imports: [
     BrowserModule,

@@ -57,4 +57,10 @@ export class NoteService {
       this._autoRefresh$.next();
     }));
     }
-}
+    pinnedNotes(id){
+      return this.http.post(`${this.baseUrl}/note/pin/${id}`,{},
+       { headers: new HttpHeaders().set('token', localStorage.getItem('token')) }).pipe(tap(() => {
+        this._autoRefresh$.next();
+      }));
+    }
+  }

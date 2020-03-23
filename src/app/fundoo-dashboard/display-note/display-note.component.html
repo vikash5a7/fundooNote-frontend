@@ -3,7 +3,7 @@
     <div class="getAllNotes" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 15%;flex-wrap: wrap;">
         <div *ngFor="let note of notes">
             <mat-card class="getNotesMat" [ngStyle]="{'background-color':note.colour}">
-                <div *ngIf="!note.pinned" class="unpin">
+                <div *ngIf="!note.pinned" class="unpin" (click)='pinned((note.id))'>
                     <a><img id="pin" src="assets/icon/unpin.svg" /></a>
                 </div>
                 <div class="tile">

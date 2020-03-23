@@ -42,7 +42,7 @@ export class CreateNoteComponent implements OnInit {
       error => this.handleError(error)
     );
       this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['fundoo']);
+      this.router.navigate(['dashboard/notes']);
   });
 }
   }

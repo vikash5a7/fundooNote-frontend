@@ -2,8 +2,8 @@
     <small style="padding-left: 207px;">PINNED</small>
     <div class="getAllNotes" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 15%;flex-wrap: wrap;">
         <div *ngFor="let note of notes">
-            <mat-card class="getNotesMat" [ngStyle]="{'background-color':note.colour}">
-                <div id="pindiv" *ngIf="note.pinned">
+            <mat-card class="getNotesMat showhim" [ngStyle]="{'background-color':note.colour}">
+                <div id="pindiv" class="showme" (click)='pinned((note.id))' *ngIf="note.pinned">
                     <a><img id="pin" src="assets/icon/pinned.svg"></a>
                 </div>
                 <div class="tile">
@@ -12,7 +12,7 @@
                 <div class="Des">
                     {{note.description}}
                 </div>
-                <div style="padding-left: 1px;">
+                <div style="padding-left: 1px;" class="showme">
                     <app-iconlist [note]="note"></app-iconlist>
                 </div>
             </mat-card>

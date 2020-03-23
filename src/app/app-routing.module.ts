@@ -10,6 +10,7 @@ import { UpdatePasswordComponent } from './auth/update-password/update-password.
 import { BeforeLoginService } from './Services/before-login.service';
 import { AfterLoginService } from './Services/after-login.service';
 import { NoteComponent } from './fundoo-dashboard/note/note.component';
+import { TrashComponent } from './fundoo-dashboard/trash/trash.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,9 @@ const routes: Routes = [
   },
   {
     path: 'notes', component: NoteComponent, canActivate: [AfterLoginService]
+  },
+  {
+    path: 'trash', component: TrashComponent, canActivate: [AfterLoginService]
   },
   {
     path: '**',
