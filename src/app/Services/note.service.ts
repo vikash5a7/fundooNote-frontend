@@ -63,4 +63,11 @@ export class NoteService {
         this._autoRefresh$.next();
       }));
     }
+
+    public getTrashedNotes(): Observable<any> {
+      return this.http.get(`${this.baseUrl}/note/fetchTrashedNote`,
+      {
+        headers : new HttpHeaders().set('token', localStorage.getItem('token'))
+      });
+    }
   }

@@ -19,9 +19,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 
-  {
-   path: 'registration', component: RegistrationComponent, canActivate: [BeforeLoginService]
-  },
+  {path: 'registration', component: RegistrationComponent, canActivate: [BeforeLoginService]},
   {
     path: 'login', component: LoginComponent, canActivate: [BeforeLoginService]
   },
@@ -32,13 +30,18 @@ const routes: Routes = [
     path: 'reset-password/:token', component: ResetPasswordComponent, canActivate: [BeforeLoginService]
   },
   {
-    path: 'dashboard/notes', component: FundooDashboardComponent, canActivate: [AfterLoginService]
-  },
-  {
-    path: 'notes', component: NoteComponent, canActivate: [AfterLoginService]
-  },
-  {
-    path: 'trash', component: TrashComponent, canActivate: [AfterLoginService]
+    path: 'dashboard', component: FundooDashboardComponent, canActivate: [AfterLoginService],
+    children : [
+      {
+      path: "", redirectTo: "/dashboard/notes", pathMatch: "full"
+      },
+      {
+        path: 'notes', component: NoteComponent, canActivate: [AfterLoginService]
+      },
+      {
+        path: 'trash', component: TrashComponent, canActivate: [AfterLoginService]
+      },
+    ]
   },
   {
     path: '**',

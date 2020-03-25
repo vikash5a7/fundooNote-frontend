@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   public grid = false;
+  public isTrash = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

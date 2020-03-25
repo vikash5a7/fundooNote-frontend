@@ -1,1 +1,28 @@
-<p>trash works!</p>
+<div></div>
+<div class="empty-notes" *ngIf="isEmptyTrashedNotesList" align="center">
+    <mat-icon>delete_outline</mat-icon>
+    <div class="mat-headline">No notes in the trash</div>
+</div>
+<div style="flex-wrap: wrap;     padding-top: 130px;
+margin-left: 20px;">
+    <div class="getAllNotes" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 15%;flex-wrap: wrap;">
+        <div>
+            <mat-card class="getNotesMat " [ngStyle]="{'background-color':note.colour}">
+                <div class="tile">
+                    vikash kumar
+                </div>
+                <div class="Des">
+                    rakesh kumar
+                </div>
+                <mat-card-footer>
+                    <button mat-icon-button>
+                    <mat-icon matTooltip="Delete forever">delete_forever</mat-icon>
+                  </button>
+                    <button mat-icon-button matTooltip="Restore">
+                    <mat-icon>restore_from_trash</mat-icon>
+                  </button>
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</div>
