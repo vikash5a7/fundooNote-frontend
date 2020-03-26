@@ -21,6 +21,8 @@ export class NoteService {
   private httpOtions = {
     headers: new HttpHeaders({ 'content-type': 'application/json' })
   };
+
+
   public createNote(note: any): Observable<any> {
     console.log('create note is ' + this.note);
     return this.http.post(`${this.baseUrl}/note/create`,
@@ -30,6 +32,7 @@ export class NoteService {
       this._autoRefresh$.next();
     }));
   }
+
   public getAllNotes(): Observable<any> {
     return this.http.get(`${this.baseUrl}/note/fetchNote`,
     {
@@ -50,6 +53,7 @@ export class NoteService {
       this._autoRefresh$.next();
     }));
   }
+
   deleteNote(id){
     return this.http.delete(`${this.baseUrl}/note/delete/${id}`, {
       headers: new HttpHeaders().set('token', localStorage.getItem('token'))
@@ -57,6 +61,7 @@ export class NoteService {
       this._autoRefresh$.next();
     }));
     }
+
     pinnedNotes(id){
       return this.http.post(`${this.baseUrl}/note/pin/${id}`,{},
        { headers: new HttpHeaders().set('token', localStorage.getItem('token')) }).pipe(tap(() => {
@@ -71,4 +76,11 @@ export class NoteService {
         headers : new HttpHeaders().set('token', localStorage.getItem('token'))
       });
     }
+
+     public deleteNotePermanetly(id){
+      return this.http.delete(`${this.baseUrl}/note/deletePermanently/${id}`,
+      { headers: new HttpHeaders().set('token', localStorage.getItem('token')) }).pipe(tap(() => {
+       this._autoRefresh$.next();
+     }));
+     }
   }

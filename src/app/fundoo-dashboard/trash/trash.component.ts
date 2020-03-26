@@ -12,6 +12,7 @@ export class TrashComponent implements OnInit {
   isEmptyTrashedNotesList = false;
   note: Note = new Note();
   notes: [];
+  isTrash=false;
   constructor(private noteService: NoteService,
               private snackBar: MatSnackBar) {
                 this.noteService.autoRefresh$.subscribe(() => {
@@ -38,4 +39,12 @@ export class TrashComponent implements OnInit {
     })
   }
 
+  deletePermanetly(id){
+    console.log('Deleting permanetly note '+ id);
+    this.noteService.deleteNotePermanetly(id).subscribe(
+      res => {
+        this.snackBar.open("Note deleted Permanetly", "ok");
+      }
+    )
+  }
 }
