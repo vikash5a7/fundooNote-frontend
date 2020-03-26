@@ -40,7 +40,7 @@ export class IconlistComponent implements OnInit {
     })
   }
   deleteNote(id) {
-    console.log('deleting note--->>' + id);
+    console.log('Restoring note id is --->>' + id);
     this.noteService.deleteNote(id).subscribe(res => {
       this.snackBar.open("Note is trashed", "OK", { duration: 3000 });
     })

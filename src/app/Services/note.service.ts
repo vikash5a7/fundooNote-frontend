@@ -65,6 +65,7 @@ export class NoteService {
     }
 
     public getTrashedNotes(): Observable<any> {
+      console.log('get trashed');
       return this.http.get(`${this.baseUrl}/note/fetchTrashedNote`,
       {
         headers : new HttpHeaders().set('token', localStorage.getItem('token'))
