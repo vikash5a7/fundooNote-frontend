@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./trash.component.scss']
 })
 export class TrashComponent implements OnInit {
-  isEmptyTrashedNotesList = false;
+  isEmptyTrashedNotesList = true;
   note: Note = new Note();
   notes: [];
   isTrash=false;
@@ -29,6 +29,9 @@ export class TrashComponent implements OnInit {
       console.log(response);
       console.log('note are the-- ' + response.obj);
       this.notes = response.obj;
+      if(this.notes!=null){
+        this.isEmptyTrashedNotesList = false;
+      }
       console.log('Notes: ', this.notes);
     });
   }

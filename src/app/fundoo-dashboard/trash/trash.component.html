@@ -2,7 +2,7 @@
     <mat-icon>delete_outline</mat-icon>
     <div class="mat-headline">No notes in the trash</div>
 </div>
-<div style=" text-align: center; padding-top: 10px;">
+<div style=" text-align: center; padding-top: 10px;" *ngIf="!isEmptyTrashedNotesList">
     <h2> Notes in Trash are</h2>
 </div>
 <div style="flex-wrap: wrap;     padding-top: 50px;
