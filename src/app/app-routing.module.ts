@@ -11,6 +11,7 @@ import { BeforeLoginService } from './Services/before-login.service';
 import { AfterLoginService } from './Services/after-login.service';
 import { NoteComponent } from './fundoo-dashboard/note/note.component';
 import { TrashComponent } from './fundoo-dashboard/trash/trash.component';
+import { ArchiveComponent } from './fundoo-dashboard/archive/archive.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,8 @@ const routes: Routes = [
       },
       {
         path: 'trash', component: TrashComponent, canActivate: [AfterLoginService]
+      }, {
+        path: 'archive', component: ArchiveComponent, canActivate: [AfterLoginService]
       },
     ]
   },
