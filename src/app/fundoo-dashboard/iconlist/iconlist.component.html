@@ -14,7 +14,7 @@
         </ng-template>
     </mat-menu>
     <a id="icons" href="#"><img src="assets/icon/addImage.svg" matTooltip="Add Image"></a>
-    <img id="icons" src="assets/icon/archive-24px.svg" matTooltip="Archive">
+    <a (click)="archive((note.id))"> <img id="icons" src="assets/icon/archive-24px.svg" matTooltip="Archive"> </a>
     <a id="icons"><img mat-icon-button [matMenuTriggerFor]="menu" style="height: 1.5em; width: 2em;" src="assets/icon/more.svg" matTooltip="More"></a>
     <mat-menu #menu="matMenu">
         <button style="outline: 0;" mat-menu-item (click)="deleteNote((note.id))">Delete Note</button>

@@ -83,4 +83,11 @@ export class NoteService {
        this._autoRefresh$.next();
      }));
      }
+
+     public archiveNote(id){
+      return this.http.post(`${this.baseUrl}/note/archive//${id}`,{},
+       { headers: new HttpHeaders().set('token', localStorage.getItem('token')) }).pipe(tap(() => {
+        this._autoRefresh$.next();
+      }));
+     }
   }

@@ -45,4 +45,10 @@ export class IconlistComponent implements OnInit {
       this.snackBar.open("Note is trashed", "OK", { duration: 3000 });
     })
   }
+  archive(id){
+    console.log('archive note id------>' + id);
+    this.noteService.archiveNote(id).subscribe(res => {
+      this.snackBar.open("Note is archived", "OK", { duration: 3000 });
+    })
+  }
 }
