@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NoteService } from 'src/app/Services/note.service';
+import { Note } from 'src/app/model/note';
 
 @Component({
   selector: 'app-archive',
@@ -6,10 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./archive.component.scss']
 })
 export class ArchiveComponent implements OnInit {
+  note: Note = new Note();
+  notes: [];
+  isEmptyArchivedNotesList = false;
+  constructor( private noteService: NoteService) {
+                this.noteService.autoRefresh$.subscribe(() => {
+                 this.getAllArchiveNote();
+    });
 
-  constructor() { }
+   }
 
   ngOnInit() {
+    this.getAllArchiveNote();
   }
-
+  getAllArchiveNote(){
+    this.noteService.getArchiveNotes().subscribe((response: any) => {
+      console.log(response);
+      console.log(' archive note are the-- ' + response.obj);
+      this.notes = response.obj;
+      if(this.notes!=null){
+        this.isEmptyArchivedNotesList = false;
+      }
+      console.log('Notes: ', this.notes);
+    });
+  }
 }

@@ -90,4 +90,14 @@ export class NoteService {
         this._autoRefresh$.next();
       }));
      }
+
+
+     public getArchiveNotes(): Observable<any> {
+      console.log('get trashed');
+      return this.http.get(`${this.baseUrl}/note/fetcharchivenote`,
+      {
+        headers : new HttpHeaders().set('token', localStorage.getItem('token'))
+      });
+    }
+
   }
