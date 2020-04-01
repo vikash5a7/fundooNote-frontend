@@ -42,6 +42,8 @@ import { PinnedNoteDisplayComponent } from './fundoo-dashboard/pinned-note-displ
 import { NoteComponent } from './fundoo-dashboard/note/note.component';
 import { TrashComponent } from './fundoo-dashboard/trash/trash.component';
 import { ArchiveComponent } from './fundoo-dashboard/archive/archive.component';
+import { RemindersComponent } from './fundoo-dashboard/reminders/reminders.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +65,7 @@ import { ArchiveComponent } from './fundoo-dashboard/archive/archive.component';
     NoteComponent,
     TrashComponent,
     ArchiveComponent,
+    RemindersComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +78,8 @@ import { ArchiveComponent } from './fundoo-dashboard/archive/archive.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
     MatToolbarModule,
     FormsModule,
     HttpClientModule,
@@ -88,7 +93,7 @@ import { ArchiveComponent } from './fundoo-dashboard/archive/archive.component';
     MatRadioModule,
     MatOptionModule,
     MatAutocompleteModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

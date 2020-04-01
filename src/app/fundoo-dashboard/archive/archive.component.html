@@ -1,5 +1,8 @@
+<div class="empty-notes" *ngIf="isEmptyArchivedNotesList" align="center">
+    <img id="icons" src="assets/icon/archive-24px.svg">
+    <div class="mat-headline">Nothing is in archive</div>
+</div>
 <div style="flex-wrap: wrap; ">
-    <small style="padding-left: 207px;">OTHERS</small>
     <div class="getAllNotes" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 15%;flex-wrap: wrap;">
         <div *ngFor="let archiveNotes of notes">
             <mat-card class="getNotesMat" [ngStyle]="{'background-color':archiveNotes.colour}">

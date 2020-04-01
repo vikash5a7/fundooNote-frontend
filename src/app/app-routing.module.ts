@@ -12,6 +12,7 @@ import { AfterLoginService } from './Services/after-login.service';
 import { NoteComponent } from './fundoo-dashboard/note/note.component';
 import { TrashComponent } from './fundoo-dashboard/trash/trash.component';
 import { ArchiveComponent } from './fundoo-dashboard/archive/archive.component';
+import { RemindersComponent } from './fundoo-dashboard/reminders/reminders.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,8 @@ const routes: Routes = [
         path: 'trash', component: TrashComponent, canActivate: [AfterLoginService]
       }, {
         path: 'archive', component: ArchiveComponent, canActivate: [AfterLoginService]
+      }, {
+        path: 'remider', component: RemindersComponent , canActivate: [AfterLoginService]
       },
     ]
   },

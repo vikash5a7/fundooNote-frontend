@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 
 <body>
@@ -58,7 +57,6 @@
             <mat-divider></mat-divider>
         </div>
     </div>
-
     <mat-sidenav-container class="sidenav-container overflow-none" style="background-color: white;">
         <mat-sidenav mode="side" #drawer class="sidenav">
             <mat-nav-list>
@@ -69,7 +67,7 @@
                     </div>
                 </div>
                 <div style="padding-left: 10px;">
-                    <button mat-button id="sidenav-button">
+                    <button mat-button id="sidenav-button" [routerLink]="['/dashboard/remider']">
                       <mat-icon id="sidenav-icon">notifications_none</mat-icon>Reminders
                     </button>
                 </div>
@@ -97,7 +95,6 @@
         </div>
         <router-outlet></router-outlet>
     </mat-sidenav-container>
-
 </body>
 
 </html>

@@ -10,7 +10,7 @@ import { Note } from 'src/app/model/note';
 export class ArchiveComponent implements OnInit {
   note: Note = new Note();
   notes: [];
-  isEmptyArchivedNotesList = false;
+  isEmptyArchivedNotesList = true;
   constructor( private noteService: NoteService) {
                 this.noteService.autoRefresh$.subscribe(() => {
                  this.getAllArchiveNote();
