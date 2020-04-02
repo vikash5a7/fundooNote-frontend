@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdatePasswordComponent } from './auth/update-password/update-password.component';
 import { SpinnerComponent } from './util/spinner/spinner.component';
 import { LogoComponent } from './util/logo/logo.component';
-import { MatMenuModule } from '@angular/material';
+import { MatMenuModule, MatChipList } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -44,6 +44,7 @@ import { TrashComponent } from './fundoo-dashboard/trash/trash.component';
 import { ArchiveComponent } from './fundoo-dashboard/archive/archive.component';
 import { RemindersComponent } from './fundoo-dashboard/reminders/reminders.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,6 +95,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     MatOptionModule,
     MatAutocompleteModule,
     MatTooltipModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

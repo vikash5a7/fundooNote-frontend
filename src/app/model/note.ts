@@ -6,7 +6,7 @@ export class Note {
  pinned: boolean;
  isArchieved: boolean ;
  colour: string ;
- reminder: string ;
+ reminder: Date ;
  createdDateAndTime: string ;
  upDateAndTime: string;
  userId: number ;

@@ -99,5 +99,11 @@ export class NoteService {
         headers : new HttpHeaders().set('token', localStorage.getItem('token'))
       });
     }
-
+    public getReminderNotes(): Observable<any> {
+      console.log('get trashed');
+      return this.http.get(`${this.baseUrl}/note/fetchpinnednote`,
+      {
+        headers : new HttpHeaders().set('token', localStorage.getItem('token'))
+      });
+    }
   }

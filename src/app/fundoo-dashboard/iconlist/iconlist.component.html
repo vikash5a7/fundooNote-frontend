@@ -1,5 +1,31 @@
+<div *ngIf="note.reminder!=null">
+    <mat-chip-list aria-label="Reminder">
+        <mat-chip>{{note.reminder}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+    </mat-chip-list>
+</div>
 <div class="inconList">
-    <a><img src="assets/icon/remainder.svg" matTooltip="Add Reminder"></a>
+    <a [matMenuTriggerFor]="menu1">
+        <img src="assets/icon/remainder.svg" id="dt1" matTooltip="Add Reminder">
+    </a>
+    <owl-date-time #dt1></owl-date-time>
+    <mat-menu #menu1="matMenu">
+        <P>Reminder: </P>
+        <input [owlDateTime]="dt1" [(ngModel)]="dateTime" [owlDateTimeTrigger]="dt1" placeholder="Set time">
+        <button mat-menu-item>
+        <span>Later Today:   8:00PM</span>
+      </button>
+        <button mat-menu-item>
+          <span>Later Tomorrow:   8:00AM</span>
+      </button >
+        <button mat-menu-item [owlDateTimeTrigger]="dt1">
+        <span>Pick Date & Time </span>
+        <mat-icon>watch_later</mat-icon>
+      </button>
+        <button id="btnAlram" mat-stroked-button color="primary" (click)="setReminder((note.id))">Set Reminder</button>
+    </mat-menu>
+
     <a id="icons"><img src="assets/icon/collab.svg" matTooltip="Collabrator "></a>
     <a id="icons"><img src="assets/icon/colorpalate.svg" [matMenuTriggerFor]="colorlist" matTooltip="Add Color"></a>
     <mat-menu #colorlist="matMenu" [overlapTrigger]="false">

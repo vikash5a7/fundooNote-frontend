@@ -1,5 +1,21 @@
 <div class="noteCreate">
     <app-create-note></app-create-note>
 </div>
-<input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Date Time">
-<owl-date-time #dt1></owl-date-time>
+<div style="flex-wrap: wrap; ">
+    <small style="padding-left: 207px;">OTHERS</small>
+    <div class="getAllNotes" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 15%;flex-wrap: wrap;">
+        <div *ngFor="let note of notes">
+            <mat-card class="getNotesMat" [ngStyle]="{'background-color':note.colour}">
+                <div class="tile">
+                    {{note.title}}
+                </div>
+                <div class="Des">
+                    {{note.description}}
+                </div>
+                <div style="padding-left: 1px;">
+                    <app-iconlist [note]="note" class="app-note-list"></app-iconlist>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

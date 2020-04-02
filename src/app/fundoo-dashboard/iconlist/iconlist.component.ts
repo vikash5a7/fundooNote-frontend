@@ -10,6 +10,8 @@ import { MatSnackBar } from '@angular/material';
 })
 export class IconlistComponent implements OnInit {
   @Input() note: Note;
+  public dateTime = null ;
+  public removable =true;
   constructor( private noteService: NoteService,
     private snackBar : MatSnackBar) { }
   arrayOfColors = [
@@ -50,5 +52,10 @@ export class IconlistComponent implements OnInit {
     this.noteService.archiveNote(id).subscribe(res => {
       this.snackBar.open("Note is archived", "OK", { duration: 3000 });
     })
+  }
+  setReminder(id)
+  {
+  console.log('reminder----->' + id);
+  console.log('time ---->' + this.dateTime);
   }
 }
