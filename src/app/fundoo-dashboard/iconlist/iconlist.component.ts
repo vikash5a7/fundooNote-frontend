@@ -53,6 +53,13 @@ export class IconlistComponent implements OnInit {
       this.snackBar.open("Note is archived", "OK", { duration: 3000 });
     })
   }
+  removeReminder(id){
+    console.log('remove reminder note id------>' + id);
+    this.removable =false;
+    this.noteService.removeReminder(id).subscribe(res => {
+      this.snackBar.open("Remove reminder successfully", "OK", { duration: 3000 });
+    })
+  }
   setReminder(id)
   {
   console.log('reminder----->' + id);

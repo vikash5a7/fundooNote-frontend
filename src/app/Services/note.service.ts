@@ -85,7 +85,7 @@ export class NoteService {
      }
 
      public archiveNote(id){
-      return this.http.post(`${this.baseUrl}/note/archive//${id}`,{},
+      return this.http.post(`${this.baseUrl}/note/archive/${id}`,{},
        { headers: new HttpHeaders().set('token', localStorage.getItem('token')) }).pipe(tap(() => {
         this._autoRefresh$.next();
       }));
@@ -101,9 +101,15 @@ export class NoteService {
     }
     public getReminderNotes(): Observable<any> {
       console.log('get trashed');
-      return this.http.get(`${this.baseUrl}/note/fetchpinnednote`,
+      return this.http.get(`${this.baseUrl}/note/getreminderNote`,
       {
         headers : new HttpHeaders().set('token', localStorage.getItem('token'))
       });
     }
+    public removeReminder(id){
+      return this.http.post(`${this.baseUrl}/note/remove-reminder/${id}`,{},
+       { headers: new HttpHeaders().set('token', localStorage.getItem('token')) }).pipe(tap(() => {
+        this._autoRefresh$.next();
+      }));
+     }
   }

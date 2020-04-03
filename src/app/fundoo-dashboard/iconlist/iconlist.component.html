@@ -1,7 +1,7 @@
 <div *ngIf="note.reminder!=null">
     <mat-chip-list aria-label="Reminder">
         <mat-chip>{{note.reminder}}
-            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            <mat-icon matChipRemove (click)="removeReminder((note.id))" *ngIf="removable">cancel</mat-icon>
         </mat-chip>
     </mat-chip-list>
 </div>
