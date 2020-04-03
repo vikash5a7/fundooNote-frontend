@@ -1,6 +1,6 @@
 <div *ngIf="note.reminder!=null">
     <mat-chip-list aria-label="Reminder">
-        <mat-chip>{{note.reminder}}
+        <mat-chip>{{note.reminder | date :'short'}}
             <mat-icon matChipRemove (click)="removeReminder((note.id))" *ngIf="removable">cancel</mat-icon>
         </mat-chip>
     </mat-chip-list>
@@ -23,7 +23,7 @@
         <span>Pick Date & Time </span>
         <mat-icon>watch_later</mat-icon>
       </button>
-        <button id="btnAlram" mat-stroked-button color="primary" (click)="setReminder((note.id))">Set Reminder</button>
+        <button style="margin-left: 30px" id="btnAlram" mat-stroked-button color="primary" (click)="setReminder((note.id))">Set Reminder</button>
     </mat-menu>
 
     <a id="icons"><img src="assets/icon/collab.svg" matTooltip="Collabrator "></a>

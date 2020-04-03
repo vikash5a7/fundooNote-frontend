@@ -57,12 +57,17 @@ export class IconlistComponent implements OnInit {
     console.log('remove reminder note id------>' + id);
     this.removable =false;
     this.noteService.removeReminder(id).subscribe(res => {
-      this.snackBar.open("Remove reminder successfully", "OK", { duration: 3000 });
+      this.snackBar.open("Removed reminder successfully", "OK", { duration: 3000 });
     })
   }
   setReminder(id)
   {
   console.log('reminder----->' + id);
-  console.log('time ---->' + this.dateTime);
+  if(this.dateTime!=null)
+  this.noteService.addreminder(id,this.dateTime).subscribe(res => {
+    this.snackBar.open("Reminder added successfully at "+ this.dateTime, "OK", { duration: 3000 });
+  })
+  else
+ this.snackBar.open("Reminder not saved", "OK", { duration: 3000 });
   }
 }

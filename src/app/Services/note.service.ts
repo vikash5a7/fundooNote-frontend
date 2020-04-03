@@ -112,4 +112,11 @@ export class NoteService {
         this._autoRefresh$.next();
       }));
      }
+
+  addreminder(noteId,reminder){
+    return this.http.post(`${this.baseUrl}/note/addreminder?noteId=${noteId}`,{reminder},
+     { headers: new HttpHeaders().set('token', localStorage.getItem('token')) }).pipe(tap(() => {
+      this._autoRefresh$.next();
+    }));
+  }
   }
