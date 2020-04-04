@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from 'src/app/model/note';
 import { NoteService } from 'src/app/Services/note.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
+import { UpdateNoteComponent } from '../update-note/update-note.component';
 
 @Component({
   selector: 'app-pinned-note-display',
@@ -14,7 +15,8 @@ export class PinnedNoteDisplayComponent implements OnInit {
   getAllNotess: [];
   note: Note = new Note();
   constructor( private noteService: NoteService,
-                private snackBar: MatSnackBar) {
+                private snackBar: MatSnackBar,
+                public dialog: MatDialog,) {
     this.noteService.autoRefresh$.subscribe(() => {
       this.getAllPinnedNotes();
     });
@@ -38,5 +40,17 @@ export class PinnedNoteDisplayComponent implements OnInit {
     this.noteService.pinnedNotes(id).subscribe(res => {
       this.snackBar.open('Note are pinned', "OK", { duration: 3000 });
     })
+  }
+  openDialog(note) {
+    console.log("catched note at simple note ", note);
+    const matDialogueReference = this.dialog.open(UpdateNoteComponent, {
+      width: "500px",
+      height: "auto",
+      panelClass: "custom-dialog-container",
+      data: { note }
+    });
+    matDialogueReference.afterClosed().subscribe(result => {
+      console.log("The dialog was closed with out update");
+    });
   }
   }

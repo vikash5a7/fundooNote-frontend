@@ -70,4 +70,11 @@ export class IconlistComponent implements OnInit {
   else
  this.snackBar.open("Reminder not Updated", "OK", { duration: 3000 });
   }
+
+  makeCopy(note) {
+    console.log('the given dat-->'+ note);
+    this.noteService.createNote(note).subscribe(res => {
+    this.snackBar.open("Note copied ", "OK", { duration: 3000 });
+  })
+  }
 }

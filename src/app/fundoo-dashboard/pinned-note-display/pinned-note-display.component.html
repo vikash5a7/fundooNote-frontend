@@ -6,12 +6,14 @@
                 <div id="pindiv" class="" (click)='pinned((note.id))' *ngIf="note.pinned">
                     <a><img id="pin" src="assets/icon/pinned.svg"></a>
                 </div>
-                <div class="tile">
-                    {{note.title}}
-                </div>
-                <div class="Des">
-                    {{note.description}}
-                </div>
+                <mat-card-content (click)="openDialog(note)">
+                    <div class="tile">
+                        {{note.title}}
+                    </div>
+                    <div class="Des">
+                        {{note.description}}
+                    </div>
+                </mat-card-content>
                 <div style="padding-left: 1px;" class="">
                     <app-iconlist [note]="note"></app-iconlist>
                 </div>

@@ -1,7 +1,7 @@
 <div *ngIf="note.reminder!=null">
-    <mat-chip-list aria-label="Reminder">
+    <mat-chip-list aria-label="Reminder" *ngIf="removable">
         <mat-chip>{{note.reminder | date :'short'}}
-            <mat-icon matChipRemove (click)="removeReminder((note.id))" *ngIf="removable">cancel</mat-icon>
+            <mat-icon matChipRemove (click)="removeReminder((note.id))">cancel</mat-icon>
         </mat-chip>
     </mat-chip-list>
 </div>
@@ -45,5 +45,6 @@
     <mat-menu #menu="matMenu">
         <button style="outline: 0;" mat-menu-item (click)="deleteNote((note.id))">Delete Note</button>
         <button mat-menu-item>Add Label</button>
+        <button mat-menu-item (click)="makeCopy((note))">Make a copy</button>
     </mat-menu>
 </div>
