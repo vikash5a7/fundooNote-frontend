@@ -68,6 +68,6 @@ export class IconlistComponent implements OnInit {
     this.snackBar.open("Reminder added successfully at "+ this.dateTime, "OK", { duration: 3000 });
   })
   else
- this.snackBar.open("Reminder not saved", "OK", { duration: 3000 });
+ this.snackBar.open("Reminder not Updated", "OK", { duration: 3000 });
   }
 }

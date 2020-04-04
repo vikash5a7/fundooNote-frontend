@@ -45,6 +45,8 @@ import { ArchiveComponent } from './fundoo-dashboard/archive/archive.component';
 import { RemindersComponent } from './fundoo-dashboard/reminders/reminders.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
+import { UpdateNoteComponent } from './fundoo-dashboard/update-note/update-note.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +69,7 @@ import {MatChipsModule} from '@angular/material/chips';
     TrashComponent,
     ArchiveComponent,
     RemindersComponent,
+    UpdateNoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,8 +99,12 @@ import {MatChipsModule} from '@angular/material/chips';
     MatAutocompleteModule,
     MatTooltipModule,
     MatChipsModule,
+    MatDialogModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    UpdateNoteComponent
+  ]
 })
 export class AppModule { }

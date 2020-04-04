@@ -53,9 +53,9 @@
                 <button id="btnforprofile" mat-raised-button (click)="logout($event)">Logout</button>
             </mat-menu>
         </mat-toolbar>
-        <div style="padding-top: 70px;">
-            <mat-divider></mat-divider>
-        </div>
+    </div>
+    <div style="padding-top: 70px;">
+        <mat-divider></mat-divider>
     </div>
     <mat-sidenav-container class="sidenav-container overflow-none" style="background-color: white;">
         <mat-sidenav mode="side" #drawer class="sidenav">
@@ -66,11 +66,12 @@
                           <mat-icon id="sidenav-icon">lightbulb_outline</mat-icon>Notes </button>
                     </div>
                 </div>
-                <div style="padding-left: 10px;">
+                <div>
                     <button mat-button id="sidenav-button" [routerLink]="['/dashboard/remider']">
                       <mat-icon id="sidenav-icon">notifications_none</mat-icon>Reminders
                     </button>
                 </div>
+                <br>
                 <mat-divider></mat-divider>
                 <div class="labels-button">
                     <div id="label_name"> Labels</div>

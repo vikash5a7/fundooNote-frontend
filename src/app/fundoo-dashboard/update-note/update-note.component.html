@@ -1,0 +1,26 @@
+<mat-card mat-dialog-content fxLayout="column" fxFlex [ngStyle]="{ 'background-color': note.colour }">
+    <mat-card-title>
+        <input id="title" [(ngModel)]="note.title" matInput type="text" placeholder="Title" [ngStyle]="{ 'background-color': note.colour }">
+    </mat-card-title>
+    <mat-card-content>
+        <input matInput type="text" placeholder="Take a note" [(ngModel)]="note.description" [ngStyle]="{ 'background-color': note.colour }">
+    </mat-card-content>
+    <div class="lastEdit" *ngIf="note.upDateAndTime != null" align="end">
+        <span style="margin-top: 8px;"><small>Last Edit: {{ note.upDateAndTime | date :'short' }}</small></span
+    >
+  </div>
+  <div class="icon" mat-dialog-actions>
+    <!-- app icon selector -->
+    <div style="padding-left: 1px;">
+      <app-iconlist [note]="note" class="app-note-list"></app-iconlist>
+  </div>
+   <div style="padding-left: 98px;">
+    <button mat-raised-button (click)="close() ||(open = !open)">
+      close
+    </button>
+    <button mat-button (click)="onSubmit() || (open = !open)">
+      update
+    </button>
+   </div>
+  </div>
+</mat-card>

@@ -14,6 +14,7 @@ export class NoteService {
   private notesList = new Subject<any>();
   // tslint:disable-next-line: variable-name
   private _autoRefresh$ = new Subject();
+  httpService: any;
   get autoRefresh$() {
     return this._autoRefresh$;
   }
@@ -116,6 +117,15 @@ export class NoteService {
   addreminder(noteId,reminder){
     return this.http.post(`${this.baseUrl}/note/addreminder?noteId=${noteId}`,{reminder},
      { headers: new HttpHeaders().set('token', localStorage.getItem('token')) }).pipe(tap(() => {
+      this._autoRefresh$.next();
+    }));
+  }
+  public updateNote(note: Note) {
+    console.log('create note is ' + this.note);
+    return this.http.put(`${this.baseUrl}/note/update`,
+      note, {
+      headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+    }).pipe(tap(() => {
       this._autoRefresh$.next();
     }));
   }

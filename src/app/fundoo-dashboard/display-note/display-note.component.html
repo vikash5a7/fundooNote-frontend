@@ -2,16 +2,20 @@
     <small style="padding-left: 207px;">OTHERS</small>
     <div class="getAllNotes" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 15%;flex-wrap: wrap;">
         <div *ngFor="let note of notes">
+
+            <!-- <button mat-raised-button (click)='openDialog()'>click me</button> -->
             <mat-card class="getNotesMat" [ngStyle]="{'background-color':note.colour}">
-                <div *ngIf="!note.pinned" class="unpin" (click)='pinned((note.id))'>
-                    <a><img id="pin" src="assets/icon/unpin.svg" /></a>
+                <div *ngIf="!note.pinned" class="unpin">
+                    <img (click)='pinned((note.id))' id="pin" src="assets/icon/unpin.svg" />
                 </div>
-                <div class="tile">
-                    {{note.title}}
-                </div>
-                <div class="Des">
-                    {{note.description}}
-                </div>
+                <mat-card-content (click)="openDialog(note)">
+                    <div class="tile">
+                        {{note.title}}
+                    </div>
+                    <div class="Des">
+                        {{note.description}}
+                    </div>
+                </mat-card-content>
                 <div style="padding-left: 1px;">
                     <app-iconlist [note]="note" class="app-note-list"></app-iconlist>
                 </div>
