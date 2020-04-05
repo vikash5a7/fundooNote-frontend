@@ -12,6 +12,7 @@ export class UpdateNoteComponent implements OnInit {
   note: Note;
   open=false;
   error = null;
+  valueChanged = false;
   constructor(
     public _matDialogRef: MatDialogRef<UpdateNoteComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -24,13 +25,13 @@ export class UpdateNoteComponent implements OnInit {
   ngOnInit() {}
   onSubmit() {
     this._matDialogRef.close();
-    if (this.note.description != null) {
+    if (this.valueChanged==true) {
       console.log(this.note);
       this.noteService.updateNote(this.note).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
     );
-}
+  }
   }
   handleResponse(data: any) {
     console.log(data);
@@ -46,7 +47,11 @@ export class UpdateNoteComponent implements OnInit {
     });
   }
   close() {
-    console.log('dialogue')
+    console.log('dialogue closed')
     this._matDialogRef.close();
+  }
+  detectChange(note) {
+    this.valueChanged = true;
+    console.log('Value chanhed--->'+ this.valueChanged);
   }
   }

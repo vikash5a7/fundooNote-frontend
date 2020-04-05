@@ -1,9 +1,9 @@
 <mat-card mat-dialog-content fxLayout="column" fxFlex [ngStyle]="{ 'background-color': note.colour }">
     <mat-card-title>
-        <input id="title" [(ngModel)]="note.title" matInput type="text" placeholder="Title" [ngStyle]="{ 'background-color': note.colour }">
+        <input id="title" [(ngModel)]="note.title" (change)='detectChange(note.title)' matInput type="text" placeholder="Title" [ngStyle]="{ 'background-color': note.colour }">
     </mat-card-title>
     <mat-card-content>
-        <input matInput type="text" placeholder="Take a note" [(ngModel)]="note.description" [ngStyle]="{ 'background-color': note.colour }">
+        <input matInput type="text" placeholder="Take a note" [(ngModel)]="note.description" (change)='detectChange(note.description)' [ngStyle]="{ 'background-color': note.colour }">
     </mat-card-content>
     <div class="lastEdit" *ngIf="note.upDateAndTime != null" align="end">
         <span style="margin-top: 8px;"><small>Last Edit: {{ note.upDateAndTime | date :'short' }}</small></span
