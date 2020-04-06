@@ -73,6 +73,18 @@
                 </div>
                 <br>
                 <mat-divider></mat-divider>
+                <div class="labels-button" fxLayout="column" fxLayoutAlign="space-around start">
+                    <div id="label_name">LABELS</div>
+                    <div class="lebels-list-container">
+                        <div class="allLabels" *ngFor="let label of labelList">
+                            <button mat-button id="sidenav-button">
+                                <mat-icon style="margin-right: 40px;"
+                                  >label</mat-icon
+                                >{{ label.name }}
+                              </button>
+                        </div>
+                    </div>
+                </div>
                 <div class="create-label" style="padding-bottom: 1px;">
                     <button mat-button id="sidenav-button" (click)="openEditLabelDialog()">
                     <mat-icon style="margin-right: 40px;">create</mat-icon

@@ -30,4 +30,12 @@ export class LabelService {
       this._autoRefresh$.next();
     }));
   }
+
+  public getAllLabel(): Observable<any> {
+    console.log('inside the label service')
+    return this.http.get(`${this.baseUrl}/labels/getAllLabel`,{
+      headers : new HttpHeaders().set('token', localStorage.getItem('token'))
+    });
+
+  }
 }

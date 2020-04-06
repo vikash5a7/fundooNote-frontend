@@ -4,7 +4,7 @@
 
     .sidenav {
         padding-top: 60px;
-        width: 250px;
+        width: 300px;
         position: fixed;
     }
 
@@ -50,15 +50,14 @@
         outline-width: 0;
     }
 
-    #sidenav-button {
-        padding-top: 5%;
-        margin-top: 8px;
-        border-top-right-radius: 30px;
-        border-bottom-right-radius: 30px;
-        width: 247px;
-        height: 55px;
-    }
-
+    // #sidenav-button {
+    //     padding-top: 5%;
+    //     margin-top: 8px;
+    //     border-top-right-radius: 30px;
+    //     border-bottom-right-radius: 30px;
+    //     width: 247px;
+    //     height: 55px;
+    // }
     #sidenav-icon {
         padding-left: 38px;
         padding-right: 47px;
@@ -115,4 +114,28 @@
 
     .noteCreate {
         padding-top: 1px;
+    }
+
+    #label_name {
+        color: gray;
+        margin-left: 2em;
+        padding-top: 5px;
+        font-size: 13px;
+        letter-spacing: 0.75px;
+        text-align: center;
+    }
+
+    .name {
+        text-align: center;
+        padding-top: 9px;
+        font-size: x-large;
+        font-family: inherit;
+        padding-top: 1px;
+    }
+
+    #sidenav-button {
+        border-top-right-radius: 30vh;
+        border-bottom-right-radius: 30vh;
+        width: 240px;
+        height: 50px;
     }

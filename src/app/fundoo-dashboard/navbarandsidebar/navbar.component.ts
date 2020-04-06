@@ -8,6 +8,8 @@ import { MatDialog } from '@angular/material';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
 import { Note } from 'src/app/model/note';
 import { EditLabelComponent } from '../label/edit-label/edit-label.component';
+import { Label } from 'src/app/model/label';
+import { LabelService } from 'src/app/Services/label.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +20,8 @@ export class NavbarComponent {
   public grid = false;
   public isTrash = false;
   note: Note = new Note();
+  label: Label=new Label();
+  labelList: [];
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -27,8 +31,24 @@ export class NavbarComponent {
   constructor(private breakpointObserver: BreakpointObserver,
               private token: TokenService,
               private route: Router,
-              public dialog: MatDialog
-    ) {}
+              public dialog: MatDialog,
+              public labelService: LabelService,
+    ) {
+      this.labelService.autoRefresh$.subscribe(() => {
+        this.displayAllLabels();
+      });
+    }
+    ngOnInit() {
+      this.displayAllLabels();
+    }
+  displayAllLabels() {
+      this.labelService.getAllLabel().subscribe((response: any) => {
+        console.log('reponse of label is ---->'+response);
+        console.log('inside the lable display')
+        this.labelList = response.obj;
+        console.log('label are---> ', this.labelList);
+      });
+  }
   onClickView() {
     this.grid = !this.grid;
   }
@@ -56,4 +76,5 @@ export class NavbarComponent {
       console.log("The dialog was closed with out update");
     });
   }
+
 }
