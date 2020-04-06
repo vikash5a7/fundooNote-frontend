@@ -47,6 +47,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateNoteComponent } from './fundoo-dashboard/update-note/update-note.component';
+import { EditLabelComponent } from './fundoo-dashboard/label/edit-label/edit-label.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +71,7 @@ import { UpdateNoteComponent } from './fundoo-dashboard/update-note/update-note.
     ArchiveComponent,
     RemindersComponent,
     UpdateNoteComponent,
+    EditLabelComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,7 +106,7 @@ import { UpdateNoteComponent } from './fundoo-dashboard/update-note/update-note.
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    UpdateNoteComponent
+    UpdateNoteComponent,EditLabelComponent
   ]
 })
 export class AppModule { }

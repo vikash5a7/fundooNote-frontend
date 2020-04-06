@@ -42,13 +42,13 @@ export class DisplayNoteComponent implements OnInit {
       this.snackBar.open('Note are pinned', "OK", { duration: 3000 });
     })
   }
-  openDialog(note) {
-    console.log("catched note at simple note ", note);
+  openDialog() {
+    console.log("catched note at simple note ", );
     const matDialogueReference = this.dialog.open(UpdateNoteComponent, {
       width: "500px",
       height: "auto",
       panelClass: "custom-dialog-container",
-      data: { note }
+      data: {  }
     });
     matDialogueReference.afterClosed().subscribe(result => {
       console.log("The dialog was closed with out update");

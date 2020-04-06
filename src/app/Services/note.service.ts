@@ -12,9 +12,7 @@ export class NoteService {
   private baseUrl = environment.USER_API_URL;
   note: Note = new Note();
   private notesList = new Subject<any>();
-  // tslint:disable-next-line: variable-name
   private _autoRefresh$ = new Subject();
-  httpService: any;
   get autoRefresh$() {
     return this._autoRefresh$;
   }

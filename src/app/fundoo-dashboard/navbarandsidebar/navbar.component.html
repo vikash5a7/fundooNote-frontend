@@ -73,9 +73,13 @@
                 </div>
                 <br>
                 <mat-divider></mat-divider>
-                <div class="labels-button">
-                    <div id="label_name"> Labels</div>
+                <div class="create-label" style="padding-bottom: 1px;">
+                    <button mat-button id="sidenav-button" (click)="openEditLabelDialog()">
+                    <mat-icon style="margin-right: 40px;">create</mat-icon
+                    >Edit labels
+                  </button>
                 </div>
+                <mat-divider></mat-divider>
                 <div class="archive-trash-container" fxLayout="column">
                     <div>
                         <button mat-button id="sidenav-button" [routerLink]="['/dashboard/archive']">

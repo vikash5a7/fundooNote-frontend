@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { TokenService } from 'src/app/Services/token.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { UpdateNoteComponent } from '../update-note/update-note.component';
+import { Note } from 'src/app/model/note';
+import { EditLabelComponent } from '../label/edit-label/edit-label.component';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +17,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   public grid = false;
   public isTrash = false;
-
+  note: Note = new Note();
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -22,7 +26,8 @@ export class NavbarComponent {
 
   constructor(private breakpointObserver: BreakpointObserver,
               private token: TokenService,
-              private route: Router
+              private route: Router,
+              public dialog: MatDialog
     ) {}
   onClickView() {
     this.grid = !this.grid;
@@ -39,5 +44,16 @@ export class NavbarComponent {
   }
   noteDisplay(event: MouseEvent) {
     console.log('note display called');
+  }
+  openEditLabelDialog() {
+    console.log("catched note at simple note ");
+    const matDialogueReference = this.dialog.open(EditLabelComponent, {
+      width: "350px",
+      height: "auto",
+      panelClass: "custom-dialog-container",
+    });
+    matDialogueReference.afterClosed().subscribe(result => {
+      console.log("The dialog was closed with out update");
+    });
   }
 }

@@ -1,0 +1,19 @@
+<h6>Edit labels</h6>
+<div fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+        <button type="reset" mat-icon-button matTooltip="Cancel" class="icon-button" (click)="cancel(label)">
+      <mat-icon>close</mat-icon>
+    </button>
+    </div>
+    <div>
+        <mat-form-field appearance="fill" autocomplete="off" color="white">
+            <input matInput id="labelName" placeholder="Create new label" [(ngModel)]="label.name" #labelInput />
+        </mat-form-field>
+    </div>
+    <!-- input field will remain dissabled when the value is empty -->
+    <div>
+        <button mat-icon-button [disabled]="labelInput.value === ''" matTooltip="Create label" class="icon-button" (click)="createLabel(label)">
+        <mat-icon>check</mat-icon>
+      </button>
+    </div>
+</div>

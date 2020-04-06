@@ -35,7 +35,6 @@ export class CreateNoteComponent implements OnInit {
     if (this.note.description != null) {
       this.tokenValue = localStorage.getItem('token');
       console.log(this.note);
-      console.log(this.tokenValue);
       this.note.pinned = this.isPin;
       this.noteService.createNote(this.note).subscribe(
       data => this.handleResponse(data),
