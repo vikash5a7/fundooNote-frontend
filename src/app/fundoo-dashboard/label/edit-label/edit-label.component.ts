@@ -11,16 +11,29 @@ import { LabelService } from 'src/app/Services/label.service';
 export class EditLabelComponent implements OnInit {
   label: Label =new Label();
   error = null;
+  labelList: [];
+  renameClicked = true;
 
   constructor(
     private labelService : LabelService,
     public _matDialogRef: MatDialogRef<EditLabelComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private snackbar: MatSnackBar
-  ) {
-  }
-
-  ngOnInit() {
+    ) {
+      this.labelService.autoRefresh$.subscribe(() => {
+        this.displayAllLabels();
+      });
+    }
+    ngOnInit() {
+      this.displayAllLabels();
+    }
+  displayAllLabels() {
+      this.labelService.getAllLabel().subscribe((response: any) => {
+        console.log('reponse of label is ---->'+response);
+        console.log('inside the lable display')
+        this.labelList = response.obj;
+        console.log('label are---> ', this.labelList);
+      });
   }
   cancel(label) {
     console.log('lable-->' , label.name);
@@ -49,5 +62,19 @@ export class EditLabelComponent implements OnInit {
     this.snackbar.open(this.error, 'ok', {
       duration: 5000
     });
+}
+deleteLabel(id) {
+  console.log('delete id.....' +id);
+}
+renameLabel() {
+  console.log()
+}
+done(){
+  console.log('done');
+  this._matDialogRef.close();
+}
+onInputClick()
+{
+
 }
 }

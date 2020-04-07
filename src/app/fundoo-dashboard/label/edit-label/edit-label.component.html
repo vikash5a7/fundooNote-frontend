@@ -17,3 +17,23 @@
       </button>
     </div>
 </div>
+<div *ngFor="let label of labelList" fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+        <button mat-icon-button matTooltip="Delete label" class="icon-button" (click)="deleteLabel(label.labelId)">
+    <mat-icon>delete</mat-icon>
+  </button>
+    </div>
+    <div>
+        <input #inputTag matInput type="text" [value]="label.name" autocomplete="off" [readonly]="renameClicked ? 'false' : 'true'" (click)="  (label.labelId)" />
+    </div>
+
+    <div>
+        <button mat-icon-button matTooltip="Rename label" class="icon-button" (click)="renameLabel(label.labelId, inputTag)">
+    <mat-icon>edit</mat-icon>
+  </button>
+    </div>
+</div>
+<mat-divider></mat-divider>
+<div align="end" style="margin-top: 5px;">
+    <button mat-button (click)="done()">Done</button>
+</div>

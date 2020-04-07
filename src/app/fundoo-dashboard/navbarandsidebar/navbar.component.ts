@@ -68,7 +68,7 @@ export class NavbarComponent {
   openEditLabelDialog() {
     console.log("catched note at simple note ");
     const matDialogueReference = this.dialog.open(EditLabelComponent, {
-      width: "350px",
+      width: "330px",
       height: "auto",
       panelClass: "custom-dialog-container",
     });
