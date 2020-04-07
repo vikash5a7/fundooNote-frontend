@@ -45,4 +45,14 @@ export class LabelService {
       this._autoRefresh$.next();
     }));
     }
+    renanmeLabel(label){
+      console.log('renaming lablel')
+      return this.http.put(`${this.baseUrl}/label/update`,  label , {
+        headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+      }).pipe(tap(() => {
+        this._autoRefresh$.next();
+      }));
+      }
+
+
 }

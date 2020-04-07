@@ -24,12 +24,13 @@
   </button>
     </div>
     <div>
-        <input #inputTag matInput type="text" [value]="label.name" autocomplete="off" [readonly]="renameClicked ? 'false' : 'true'" (click)="  (label.labelId)" />
+        <input #inputTag matInput type="text" [(ngModel)]="label.name" (change)='detectChange(label.name)' autocomplete="off" [readonly]="renameClicked ? 'false' : 'true'" (click)="  (label.labelId)" />
     </div>
-
     <div>
-        <button mat-icon-button matTooltip="Rename label" class="icon-button" (click)="renameLabel(label.labelId, inputTag)">
-    <mat-icon>edit</mat-icon>
+        <button mat-icon-button matTooltip="Rename label" class="icon-button" (click)="renameLabel(label)">
+
+          <mat-icon>
+            {{ valueChanged?'check' : 'edit'  }}</mat-icon>
   </button>
     </div>
 </div>

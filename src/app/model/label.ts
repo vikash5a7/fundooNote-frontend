@@ -3,4 +3,5 @@ export class Label {
   name: string;
   createdDate: any;
   userId: number;
+  snackbar: String;
 }

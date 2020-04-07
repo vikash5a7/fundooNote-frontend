@@ -13,6 +13,7 @@ export class EditLabelComponent implements OnInit {
   error = null;
   labelList: [];
   renameClicked = true;
+  valueChanged=false;
 
   constructor(
     private labelService : LabelService,
@@ -69,12 +70,28 @@ deleteLabel(lable) {
     this.snackbar.open('Label Deleted', "OK", { duration: 3000 });
 })
 }
-renameLabel() {
-  console.log()
+renameLabel(label) {
+  console.log("label id is -->" + label.labelId);
+  console.log('rename label is '+ label.name);
+ if(label.name!=null){
+  this.labelService.renanmeLabel(label).subscribe(
+    res => {
+      this.snackbar.open('label Updated',"ok",{duration: 4000});
+    }
+  );
+ }
+ else{
+  this.snackbar.open('can not be empty',"ok",{duration: 4000})
+ }
 }
 done(){
   console.log('done');
   this._matDialogRef.close();
+}
+detectChange()
+{
+  this.valueChanged=true;
+
 }
 onInputClick()
 {
