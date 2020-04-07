@@ -63,8 +63,11 @@ export class EditLabelComponent implements OnInit {
       duration: 5000
     });
 }
-deleteLabel(id) {
-  console.log('delete id.....' +id);
+deleteLabel(lable) {
+  console.log('delete id.....' + this.label);
+  this.labelService.deleteLabel(lable).subscribe(res => {
+    this.snackbar.open('Label Deleted', "OK", { duration: 3000 });
+})
 }
 renameLabel() {
   console.log()

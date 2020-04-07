@@ -36,6 +36,13 @@ export class LabelService {
     return this.http.get(`${this.baseUrl}/labels/getAllLabel`,{
       headers : new HttpHeaders().set('token', localStorage.getItem('token'))
     });
-
   }
+
+  deleteLabel(label){
+    return this.http.post(`${this.baseUrl}/label/delete/`,  label , {
+      headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+    }).pipe(tap(() => {
+      this._autoRefresh$.next();
+    }));
+    }
 }
