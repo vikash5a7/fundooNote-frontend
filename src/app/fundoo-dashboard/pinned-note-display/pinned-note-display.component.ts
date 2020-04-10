@@ -3,6 +3,7 @@ import { Note } from 'src/app/model/note';
 import { NoteService } from 'src/app/Services/note.service';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
+import { Label } from 'src/app/model/label';
 
 @Component({
   selector: 'app-pinned-note-display',
@@ -12,8 +13,11 @@ import { UpdateNoteComponent } from '../update-note/update-note.component';
 export class PinnedNoteDisplayComponent implements OnInit {
   isPin = false;
   notes: [];
+  removable = true;
   getAllNotess: [];
   note: Note = new Note();
+  label: Label = new Label();
+  labels : [];
   constructor( private noteService: NoteService,
                 private snackBar: MatSnackBar,
                 public dialog: MatDialog,) {
@@ -28,9 +32,10 @@ export class PinnedNoteDisplayComponent implements OnInit {
   getAllPinnedNotes() {
     this.noteService.getAllPinnedNotes().subscribe((response: any) => {
       console.log(response);
-      console.log('note are the-- ' + response.obj);
+      console.log('Pinned Note are ' + response.obj);
       this.notes = response.obj;
-      console.log('Notes: ', this.notes);
+      this.labels = response.obj.list;
+      console.log('label are in notes are' + this.label.name)
     });
   }
   pinned(id)

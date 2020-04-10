@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Note } from 'src/app/model/note';
 import { NoteService } from 'src/app/Services/note.service';
 import { MatSnackBar } from '@angular/material';
+import { Label } from 'src/app/model/label';
+import { LabelService } from 'src/app/Services/label.service';
 
 @Component({
   selector: 'app-iconlist',
@@ -12,8 +14,20 @@ export class IconlistComponent implements OnInit {
   @Input() note: Note;
   public dateTime = null ;
   public removable =true;
+  label : Label =new Label;
+  labelList= [];
+  labels : [];
   constructor( private noteService: NoteService,
-    private snackBar : MatSnackBar) { }
+    private snackBar : MatSnackBar,
+    public labelService: LabelService,
+    ) {
+      this.labelService.autoRefresh$.subscribe(() => {
+        this.displayAllLabels();
+      });
+    }
+    ngOnInit() {
+      this.displayAllLabels();
+    }
   arrayOfColors = [
     [
       { color: 'rgb(255, 179, 255)', name: 'pink' },
@@ -31,9 +45,6 @@ export class IconlistComponent implements OnInit {
       { color: ' rgb(158, 136, 191)', name: 'darkYellow' }
     ]
   ];
-
-  ngOnInit() {
-  }
   setColor(color) {
     console.log("Color---->", color, this.note.id);
     console.log('note id--->' ,this.note.id);
@@ -77,4 +88,25 @@ export class IconlistComponent implements OnInit {
     this.snackBar.open("Note copied ", "OK", { duration: 3000 });
   })
   }
+  stopPropagation(event){
+    event.stopPropagation();
+}
+addNoteToLabel(label) {
+  console.log(label.name);
+  console.log('label id is-->' + label.labelId);
+  console.log('Note id is -->' + this.note.id)
+}
+displayAllLabels() {
+  this.labelService.getAllLabel().subscribe((response: any) => {
+    console.log('reponse of label is ---->'+response);
+    console.log('inside the lable display')
+    this.labelList = response.obj;
+    console.log('label are---> ', this.labelList);
+  });
+}
+
+removeLabel(note)
+{
+  console.log("removing label---");
+}
 }

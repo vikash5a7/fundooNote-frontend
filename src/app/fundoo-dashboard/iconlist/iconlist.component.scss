@@ -28,3 +28,18 @@ input {
 #btnAlram {
     padding-left: 20px;
 }
+
+// reducing size of button
+.icon-button {
+    transform: scale(0.8);
+}
+
+mat-icon {
+    opacity: 0.3;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    border-radius: 4px 4px 0 0;
+    padding: .75em .75em 0 .75em;
+    background: wheat;
+}

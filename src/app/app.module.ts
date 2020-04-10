@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdatePasswordComponent } from './auth/update-password/update-password.component';
 import { SpinnerComponent } from './util/spinner/spinner.component';
 import { LogoComponent } from './util/logo/logo.component';
-import { MatMenuModule, MatChipList } from '@angular/material';
+import { MatMenuModule, MatChipList, MatCheckbox, MatCheckboxModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -102,6 +102,7 @@ import { EditLabelComponent } from './fundoo-dashboard/label/edit-label/edit-lab
     MatTooltipModule,
     MatChipsModule,
     MatDialogModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

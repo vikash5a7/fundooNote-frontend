@@ -1,3 +1,10 @@
+<div *ngFor="let label of note.list">
+    <mat-chip-list aria-label="Reminder">
+        <mat-chip>{{label.name}}
+            <mat-icon matChipRemove (click)="removeLabel((note.id))">cancel</mat-icon>
+        </mat-chip>
+    </mat-chip-list>
+</div>
 <div *ngIf="note.reminder!=null">
     <mat-chip-list aria-label="Reminder" *ngIf="removable">
         <mat-chip>{{note.reminder | date :'short'}}
@@ -44,7 +51,34 @@
     <a id="icons"><img mat-icon-button [matMenuTriggerFor]="menu" style="height: 1.5em; width: 2em;" src="assets/icon/more.svg" matTooltip="More"></a>
     <mat-menu #menu="matMenu">
         <button style="outline: 0;" mat-menu-item (click)="deleteNote((note.id))">Delete Note</button>
-        <button mat-menu-item>Add Label</button>
         <button mat-menu-item (click)="makeCopy((note))">Make a copy</button>
+        <button mat-menu-item [matMenuTriggerFor]="vertebrates" (click)="stopPropagation($event)">Add Label</button>
+    </mat-menu>
+    <mat-menu #vertebrates="matMenu">
+        <div class="main-div">
+            <mat-card>
+                <mat-card-header>Note Label</mat-card-header>
+                <form (click)="stopPropagation($event)">
+                    <div>
+                        <mat-form-field autocomplete="on" style="
+                        background: white;
+                        padding: 0px;
+                    ">
+                            <input matInput autocomplete="off" color="white" placeholder="Enter Label" id="labelName" />
+                            <mat-icon matSuffix>search</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="display-labels">
+                        <div *ngFor="let label of labelList">
+                            <mat-checkbox (click)="addNoteToLabel(label)"></mat-checkbox>
+                            <label mat-menu-item style="display: inline; ">{{label.name}}</label>
+                        </div>
+                    </div>
+                    <div align="end ">
+                        <button mat-raised-button>Done</button>
+                    </div>
+                </form>
+            </mat-card>
+        </div>
     </mat-menu>
 </div>
