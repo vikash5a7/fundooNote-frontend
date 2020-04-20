@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Note } from 'src/app/model/note';
 import { NoteService } from 'src/app/Services/note.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { Label } from 'src/app/model/label';
 import { LabelService } from 'src/app/Services/label.service';
+import { CollabratorComponent } from '../collabrator/collabrator.component';
 
 @Component({
   selector: 'app-iconlist',
@@ -20,6 +21,7 @@ export class IconlistComponent implements OnInit {
   constructor( private noteService: NoteService,
     private snackBar : MatSnackBar,
     public labelService: LabelService,
+    public dialog: MatDialog
     ) {
       this.labelService.autoRefresh$.subscribe(() => {
         this.displayAllLabels();
@@ -108,5 +110,18 @@ displayAllLabels() {
 removeLabel(note)
 {
   console.log("removing label---");
+}
+
+openDialog(note) {
+  console.log("catched note at simple note ", note);
+  const matDialogueReference = this.dialog.open(CollabratorComponent, {
+    width: "500px",
+    height: "auto",
+    panelClass: "custom-dialog-container",
+    data: { note }
+  });
+  matDialogueReference.afterClosed().subscribe(result => {
+    console.log("The dialog was closed with out update");
+  });
 }
 }

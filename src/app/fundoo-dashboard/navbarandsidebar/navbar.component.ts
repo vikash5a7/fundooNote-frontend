@@ -19,6 +19,7 @@ import { LabelService } from 'src/app/Services/label.service';
 export class NavbarComponent {
   public grid = false;
   public isTrash = false;
+  name: String;
   note: Note = new Note();
   label: Label=new Label();
   labelList: [];
@@ -40,6 +41,7 @@ export class NavbarComponent {
     }
     ngOnInit() {
       this.displayAllLabels();
+      this.name=localStorage.getItem('Name');
     }
   displayAllLabels() {
       this.labelService.getAllLabel().subscribe((response: any) => {
@@ -58,6 +60,7 @@ export class NavbarComponent {
   logout(event: MouseEvent) {
     console.log('loggout function called');
     event.preventDefault();
+
     this.token.remove();
     this.token.logedIn(false);
     this.route.navigateByUrl('/login');

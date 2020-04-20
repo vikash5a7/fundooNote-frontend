@@ -46,10 +46,12 @@ export class LoginComponent implements OnInit {
      error => this.handleError(error)
    );
   }
+
   handleResponse(data) {
-    this.token.handle(data.token);
+    this.token.handle(data);
     this.isLoading = false;
     this.token.logedIn(true);
+    console.log('user is --->' + data)
     this.matSnackBar.open('Sucessfully Login', 'ok', {
       duration: 5000
     });

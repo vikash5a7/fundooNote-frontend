@@ -73,7 +73,7 @@ deleteLabel(lable) {
 renameLabel(label) {
   console.log("label id is -->" + label.labelId);
   console.log('rename label is '+ label.name);
- if(label.name!=null){
+ if(label.name!==null){
   this.labelService.renanmeLabel(label).subscribe(
     res => {
       this.snackbar.open('label Updated',"ok",{duration: 4000});
@@ -84,17 +84,19 @@ renameLabel(label) {
   this.snackbar.open('can not be empty',"ok",{duration: 4000})
  }
 }
-done(){
+done(label){
   console.log('done');
-  this._matDialogRef.close();
+  if(this.valueChanged)
+    {
+      this.labelService.createLabel(label).subscribe(
+        data => this.handleResponse(data),
+        error => this.handleError(error)
+      );
+    }
+    this._matDialogRef.close();
 }
 detectChange()
 {
   this.valueChanged=true;
-
-}
-onInputClick()
-{
-
 }
 }

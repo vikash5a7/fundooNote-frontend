@@ -45,6 +45,7 @@ export class LabelService {
       this._autoRefresh$.next();
     }));
     }
+
     renanmeLabel(label){
       console.log('renaming lablel')
       return this.http.put(`${this.baseUrl}/label/update`,  label , {
@@ -52,7 +53,14 @@ export class LabelService {
       }).pipe(tap(() => {
         this._autoRefresh$.next();
       }));
-      }
+    }
 
+    addLabel(label){
+      return this.http.post(`${this.baseUrl}/label/delete/`,  label , {
+        headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+      }).pipe(tap(() => {
+        this._autoRefresh$.next();
+      }));
+      }
 
 }

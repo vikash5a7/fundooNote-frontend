@@ -48,6 +48,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateNoteComponent } from './fundoo-dashboard/update-note/update-note.component';
 import { EditLabelComponent } from './fundoo-dashboard/label/edit-label/edit-label.component';
+import { CollabratorComponent } from './fundoo-dashboard/collabrator/collabrator.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +73,7 @@ import { EditLabelComponent } from './fundoo-dashboard/label/edit-label/edit-lab
     RemindersComponent,
     UpdateNoteComponent,
     EditLabelComponent,
+    CollabratorComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,7 +109,7 @@ import { EditLabelComponent } from './fundoo-dashboard/label/edit-label/edit-lab
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    UpdateNoteComponent,EditLabelComponent
+    UpdateNoteComponent,EditLabelComponent, CollabratorComponent
   ]
 })
 export class AppModule { }

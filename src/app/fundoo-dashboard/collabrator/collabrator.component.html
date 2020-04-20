@@ -1,0 +1,28 @@
+<div class="container">
+    <div>
+        <h4>Collaborators</h4>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="row" style="padding-top: 10px;">
+        <div class="col-sm-1">
+            <span class="material-icons">
+            account_circle
+            </span>
+        </div>
+        <div class="col-sm-11">
+            <p>{{email}}</p> <small style="float: right;">Owner</small>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <a id="icons"><img src="assets/icon/collab.svg" matTooltip="Collabrator "> </a>
+            <div class="col"> <input id="title" matInput type="text" placeholder="Person or email to share with"></div>
+        </div>
+    </div>
+    <div class="container" style="padding-top: 5px;">
+        <div class="example-button-row text-right">
+            <button mat-raised-button (click)="close()" style="margin-right: 20px;">Cancel</button>
+            <button mat-raised-button>Save</button>
+        </div>
+    </div>
+</div>

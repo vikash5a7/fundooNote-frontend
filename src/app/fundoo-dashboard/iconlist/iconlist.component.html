@@ -33,7 +33,7 @@
         <button style="margin-left: 30px" id="btnAlram" mat-stroked-button color="primary" (click)="setReminder((note.id))">Set Reminder</button>
     </mat-menu>
 
-    <a id="icons"><img src="assets/icon/collab.svg" matTooltip="Collabrator "></a>
+    <a (click)="openDialog((note.id))" id="icons"><img src="assets/icon/collab.svg" matTooltip="Collabrator "></a>
     <a id="icons"><img src="assets/icon/colorpalate.svg" [matMenuTriggerFor]="colorlist" matTooltip="Add Color"></a>
     <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
         <ng-template matMenuContent>
