@@ -49,6 +49,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateNoteComponent } from './fundoo-dashboard/update-note/update-note.component';
 import { EditLabelComponent } from './fundoo-dashboard/label/edit-label/edit-label.component';
 import { CollabratorComponent } from './fundoo-dashboard/collabrator/collabrator.component';
+import { SearchLabelPipe } from './pipe/search-label.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +75,7 @@ import { CollabratorComponent } from './fundoo-dashboard/collabrator/collabrator
     UpdateNoteComponent,
     EditLabelComponent,
     CollabratorComponent,
+    SearchLabelPipe,
   ],
   imports: [
     BrowserModule,

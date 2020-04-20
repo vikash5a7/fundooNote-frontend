@@ -18,6 +18,7 @@ export class IconlistComponent implements OnInit {
   label : Label =new Label;
   labelList= [];
   labels : [];
+  SearchTeram : null;
   constructor( private noteService: NoteService,
     private snackBar : MatSnackBar,
     public labelService: LabelService,

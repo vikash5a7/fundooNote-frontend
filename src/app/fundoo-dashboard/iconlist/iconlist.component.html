@@ -64,12 +64,12 @@
                         background: white;
                         padding: 0px;
                     ">
-                            <input matInput autocomplete="off" color="white" placeholder="Enter Label" id="labelName" />
+                            <input matInput autocomplete="off" [ngModelOptions]="{standalone: true}" [(ngModel)]="SearchTeram" color="white" placeholder="Enter Label" id="labelName" />
                             <mat-icon matSuffix>search</mat-icon>
                         </mat-form-field>
                     </div>
                     <div class="display-labels">
-                        <div *ngFor="let label of labelList">
+                        <div *ngFor="let label of labelList| searchLabel : SearchTeram ">
                             <mat-checkbox (click)="addNoteToLabel(label)"></mat-checkbox>
                             <label mat-menu-item style="display: inline; ">{{label.name}}</label>
                         </div>
