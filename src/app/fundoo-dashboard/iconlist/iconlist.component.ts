@@ -116,7 +116,13 @@ removeLabel(label)
 {
   console.log('Removing label id is-->' + label.labelId);
   console.log('removing Note id is -->' + this.note.id);
+  this.labelService.removingLabelOnNote(label.labelId, this.note.id).subscribe(
+    res => {
+      this.snackBar.open("Label removed","Ok",{duration:3000})
+    }
+  )
 }
+
 
 openDialog(note) {
   console.log("catched note at simple note ", note);

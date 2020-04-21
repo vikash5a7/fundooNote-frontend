@@ -66,4 +66,13 @@ export class LabelService {
           headers : new HttpHeaders().set('token', localStorage.getItem('token'))
         });
       }
+
+      removingLabelOnNote(labelId,noteId){
+        return this.http.post(`${this.baseUrl}/label/removelabel?labelId=${labelId}&noteId=${noteId}`,{},
+         { headers: new HttpHeaders().set('token', localStorage.getItem('token')) }).pipe(tap(() => {
+          this._autoRefresh$.next();
+        }));
+      }
+
+
 }
