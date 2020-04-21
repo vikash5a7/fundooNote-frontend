@@ -51,6 +51,7 @@ import { EditLabelComponent } from './fundoo-dashboard/label/edit-label/edit-lab
 import { CollabratorComponent } from './fundoo-dashboard/collabrator/collabrator.component';
 import { SearchLabelPipe } from './pipe/search-label.pipe';
 import { LabelNotesComponent } from './fundoo-dashboard/label-notes/label-notes.component';
+import { SampleNoteComponent } from './fundoo-dashboard/sample-note/sample-note.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,6 +79,7 @@ import { LabelNotesComponent } from './fundoo-dashboard/label-notes/label-notes.
     CollabratorComponent,
     SearchLabelPipe,
     LabelNotesComponent,
+    SampleNoteComponent,
   ],
   imports: [
     BrowserModule,

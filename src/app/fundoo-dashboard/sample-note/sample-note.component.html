@@ -1,0 +1,20 @@
+<!-- <button mat-raised-button (click)='openDialog()'>click me</button> -->
+<mat-card class="getNotesMat" [ngStyle]="{'background-color':note.colour}">
+    <div *ngIf="!note.pinned" class="unpin">
+        <img (click)='pinned((note.id))' id="pin" src="assets/icon/unpin.svg" />
+    </div>
+    <div id="pindiv" class="" (click)='pinned((note.id))' *ngIf="note.pinned">
+        <a><img id="pin" src="assets/icon/pinned.svg"></a>
+    </div>
+    <mat-card-content (click)="openDialog(note)">
+        <div class="tile">
+            {{note.title}}
+        </div>
+        <div class="Des">
+            {{note.description}}
+        </div>
+    </mat-card-content>
+    <div style="padding-left: 1px;">
+        <app-iconlist [note]="note" class="app-note-list"></app-iconlist>
+    </div>
+</mat-card>

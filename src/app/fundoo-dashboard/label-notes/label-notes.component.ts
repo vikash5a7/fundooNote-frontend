@@ -26,12 +26,9 @@ export class LabelNotesComponent implements OnInit {
     // this is for the forcing reloading the component if something change in paramenter
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
-
   ngOnInit() {
     this.getAllNotes();
   }
-
-
   getAllNotes() {
     this.id=this._Activatedroute.snapshot.paramMap.get("id");
     this.labelService.getAllLabelNotes(this.id).subscribe((response: any) => {
@@ -41,8 +38,6 @@ export class LabelNotesComponent implements OnInit {
       console.log('Notes: ', this.notes);
     });
   }
-
-
   openDialog(note) {
     console.log("catched note at simple note ", note);
     const matDialogueReference = this.dialog.open(UpdateNoteComponent, {

@@ -2,22 +2,7 @@
     <small style="padding-left: 207px;">PINNED</small>
     <div class="getAllNotes" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 15%;flex-wrap: wrap;">
         <div *ngFor="let note of notes">
-            <mat-card class="getNotesMat " [ngStyle]="{'background-color':note.colour}">
-                <div id="pindiv" class="" (click)='pinned((note.id))' *ngIf="note.pinned">
-                    <a><img id="pin" src="assets/icon/pinned.svg"></a>
-                </div>
-                <mat-card-content (click)="openDialog(note)">
-                    <div class="tile">
-                        {{note.title}}
-                    </div>
-                    <div class="Des">
-                        {{note.description}}
-                    </div>
-                </mat-card-content>
-                <div style="padding-left: 1px;" class="">
-                    <app-iconlist [note]="note"></app-iconlist>
-                </div>
-            </mat-card>
+            <app-sample-note [note]="note"></app-sample-note>
         </div>
     </div>
 </div>
