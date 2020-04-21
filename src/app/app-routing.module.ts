@@ -14,6 +14,7 @@ import { TrashComponent } from './fundoo-dashboard/trash/trash.component';
 import { ArchiveComponent } from './fundoo-dashboard/archive/archive.component';
 import { RemindersComponent } from './fundoo-dashboard/reminders/reminders.component';
 import { UpdateNoteComponent } from './fundoo-dashboard/update-note/update-note.component';
+import { LabelNotesComponent } from './fundoo-dashboard/label-notes/label-notes.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,12 @@ const routes: Routes = [
       }, {
         path: 'remider', component: RemindersComponent , canActivate: [AfterLoginService]
       },
+      {
+        path: 'update-note', component: UpdateNoteComponent , canActivate: [AfterLoginService]
+      },
+      {
+        path: 'note-label/:id', component: LabelNotesComponent, canActivate: [AfterLoginService]
+      }
     ]
   },
   {

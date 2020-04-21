@@ -19,6 +19,7 @@ import { LabelService } from 'src/app/Services/label.service';
 export class NavbarComponent {
   public grid = false;
   public isTrash = false;
+  public isLabelNotes = false;
   name: String;
   note: Note = new Note();
   label: Label=new Label();
@@ -34,6 +35,7 @@ export class NavbarComponent {
               private route: Router,
               public dialog: MatDialog,
               public labelService: LabelService,
+              private router: Router
     ) {
       this.labelService.autoRefresh$.subscribe(() => {
         this.displayAllLabels();
@@ -80,7 +82,9 @@ export class NavbarComponent {
     });
   }
   getNotes(id){
-    console.log('label id is--' + id);
+    this.isLabelNotes = true;
+    console.log('id-----------' + id);
+    this.router.navigate(['/dashboard/note-label/',id]);
   }
 
 }
