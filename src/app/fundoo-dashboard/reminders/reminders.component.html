@@ -2,23 +2,9 @@
     <app-create-note></app-create-note>
 </div>
 <div style="flex-wrap: wrap; ">
-    <small style="padding-left: 207px;">OTHERS</small>
+    <small style="padding-left: 207px;">REMINDER NOTES</small>
     <div class="getAllNotes" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 15%;flex-wrap: wrap;">
         <div *ngFor="let note of notes">
-            <mat-card class="getNotesMat" [ngStyle]="{'background-color':note.colour}">
-                <div (click)="openDialog(note)">
-
-                    <div class="tile">
-                        {{note.title}}
-                    </div>
-                    <div class="Des">
-                        {{note.description}}
-                    </div>
-                </div>
-                <div style="padding-left: 1px;">
-                    <app-iconlist [note]="note" class="app-note-list"></app-iconlist>
-                </div>
-            </mat-card>
+            <app-sample-note [note]="note"></app-sample-note>
         </div>
     </div>
-</div>

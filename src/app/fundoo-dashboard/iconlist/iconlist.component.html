@@ -1,7 +1,7 @@
 <div *ngFor="let label of note.list">
     <mat-chip-list aria-label="Reminder">
         <mat-chip>{{label.name}}
-            <mat-icon matChipRemove (click)="removeLabel((note.id))">cancel</mat-icon>
+            <mat-icon matChipRemove (click)="removeLabel((label))">cancel</mat-icon>
         </mat-chip>
     </mat-chip-list>
 </div>

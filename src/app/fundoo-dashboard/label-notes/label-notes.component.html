@@ -1,6 +1,10 @@
 <app-create-note></app-create-note>
-<div class="flex-direction: row">
-    <div *ngFor="let note of notes">
-        <app-sample-note [note]="note"></app-sample-note>
-    </div>
+<div class="empty-notes" *ngIf="notes==null" align="center">
+    <div class="mat-headline">Not any notes present</div>
 </div>
+<div style="flex-wrap: wrap; ">
+    <div class="getAllNotes" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 15%;flex-wrap: wrap;">
+        <div *ngFor="let note of notes">
+            <app-sample-note [note]="note"></app-sample-note>
+        </div>
+    </div>

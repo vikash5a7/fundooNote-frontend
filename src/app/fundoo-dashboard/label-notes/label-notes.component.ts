@@ -13,6 +13,7 @@ import { LabelService } from 'src/app/Services/label.service';
 export class LabelNotesComponent implements OnInit {
   isPin = false;
   notes: [];
+  isEmptyArchivedNotesList:boolean;
   getAllNotess: [];
   note: Note = new Note();
   id: any;
@@ -35,6 +36,10 @@ export class LabelNotesComponent implements OnInit {
       console.log(response);
       console.log('note are the-- ' + response.obj);
       this.notes = response.obj;
+      if(this.notes!=null)
+      {
+        this.isEmptyArchivedNotesList=false;
+      }
       console.log('Notes: ', this.notes);
     });
   }

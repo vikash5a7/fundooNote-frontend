@@ -95,9 +95,13 @@ export class IconlistComponent implements OnInit {
     event.stopPropagation();
 }
 addNoteToLabel(label) {
-  console.log(label.name);
   console.log('label id is-->' + label.labelId);
-  console.log('Note id is -->' + this.note.id)
+  console.log('Note id is -->' + this.note.id);
+  this.labelService.addLabelOnNote(label.labelId, this.note.id).subscribe(
+    res => {
+      this.snackBar.open("label Set sucessfully","Ok",{duration:3000})
+    }
+  )
 }
 displayAllLabels() {
   this.labelService.getAllLabel().subscribe((response: any) => {
@@ -108,9 +112,10 @@ displayAllLabels() {
   });
 }
 
-removeLabel(note)
+removeLabel(label)
 {
-  console.log("removing label---");
+  console.log('Removing label id is-->' + label.labelId);
+  console.log('removing Note id is -->' + this.note.id);
 }
 
 openDialog(note) {
