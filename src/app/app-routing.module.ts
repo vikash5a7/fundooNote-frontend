@@ -48,9 +48,6 @@ const routes: Routes = [
       }, {
         path: 'remider', component: RemindersComponent , canActivate: [AfterLoginService]
       },
-      {
-        path: 'update-note', component: UpdateNoteComponent , canActivate: [AfterLoginService]
-      },
     ]
   },
   {

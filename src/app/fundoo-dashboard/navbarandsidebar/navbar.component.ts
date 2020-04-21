@@ -79,5 +79,8 @@ export class NavbarComponent {
       console.log("The dialog was closed with out update");
     });
   }
+  getNotes(id){
+    console.log('label id is--' + id);
+  }
 
 }

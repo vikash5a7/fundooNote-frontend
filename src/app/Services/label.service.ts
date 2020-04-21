@@ -54,7 +54,6 @@ export class LabelService {
         this._autoRefresh$.next();
       }));
     }
-
     addLabel(label){
       return this.http.post(`${this.baseUrl}/label/delete/`,  label , {
         headers: new HttpHeaders().set('token', localStorage.getItem('token'))
@@ -63,4 +62,10 @@ export class LabelService {
       }));
       }
 
+      public getAllLabelNotes(id): Observable<any> {
+        console.log('inside the label service')
+        return this.http.get(`${this.baseUrl}/label/getLabelNotes?id=${id}`,{
+          headers : new HttpHeaders().set('token', localStorage.getItem('token'))
+        });
+      }
 }
