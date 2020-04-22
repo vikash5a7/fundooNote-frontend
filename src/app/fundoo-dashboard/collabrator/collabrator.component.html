@@ -16,13 +16,18 @@
     <div class="container-fluid">
         <div class="row">
             <a id="icons"><img src="assets/icon/collab.svg" matTooltip="Collabrator "> </a>
-            <div class="col"> <input id="title" matInput type="text" placeholder="Person or email to share with"></div>
+            <div class="col">
+                <form #myForm="ngForm">
+                    <input email required matInput #emailId="ngModel" type="email" placeholder="Email" [(ngModel)]="enterEmail" name="email">
+
+                </form>
+            </div>
         </div>
     </div>
     <div class="container" style="padding-top: 5px;">
         <div class="example-button-row text-right">
             <button mat-raised-button (click)="close()" style="margin-right: 20px;">Cancel</button>
-            <button mat-raised-button>Save</button>
+            <button mat-raised-button (click)="addCollabrator(note)" [disabled]="!myForm.valid" type="submit">Save</button>
         </div>
     </div>
 </div>

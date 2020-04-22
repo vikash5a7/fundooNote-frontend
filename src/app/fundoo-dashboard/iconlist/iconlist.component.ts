@@ -14,7 +14,7 @@ import { CollabratorComponent } from '../collabrator/collabrator.component';
 export class IconlistComponent implements OnInit {
   @Input() note: Note;
   public dateTime = null ;
-  public checked = false;
+  public checked = true;
   public removable =true;
   public removableLabel = true;
   label : Label =new Label;
