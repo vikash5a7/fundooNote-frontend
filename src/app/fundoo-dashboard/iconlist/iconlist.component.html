@@ -1,6 +1,6 @@
 <div *ngFor="let label of note.list">
-    <mat-chip-list aria-label="Reminder">
-        <mat-chip>{{label.name}}
+    <mat-chip-list aria-label="label">
+        <mat-chip *ngIf="removableLabel">{{label.name}}
             <mat-icon matChipRemove (click)="removeLabel((label))">cancel</mat-icon>
         </mat-chip>
     </mat-chip-list>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="display-labels">
                         <div *ngFor="let label of labelList| searchLabel : SearchTeram ">
-                            <mat-checkbox (click)="addNoteToLabel(label)"></mat-checkbox>
+                            <mat-checkbox [(ngModel)]="checked" [ngModelOptions]="{standalone: true}" (click)="addNoteToLabel(label)"></mat-checkbox>
                             <label mat-menu-item style="display: inline; ">{{label.name}}</label>
                         </div>
                     </div>

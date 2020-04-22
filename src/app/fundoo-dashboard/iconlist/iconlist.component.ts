@@ -14,7 +14,9 @@ import { CollabratorComponent } from '../collabrator/collabrator.component';
 export class IconlistComponent implements OnInit {
   @Input() note: Note;
   public dateTime = null ;
+  public checked = false;
   public removable =true;
+  public removableLabel = true;
   label : Label =new Label;
   labelList= [];
   labels : [];
@@ -97,11 +99,14 @@ export class IconlistComponent implements OnInit {
 addNoteToLabel(label) {
   console.log('label id is-->' + label.labelId);
   console.log('Note id is -->' + this.note.id);
+  console.log('checked value is'+ this.checked);
+  if(this.checked){
   this.labelService.addLabelOnNote(label.labelId, this.note.id).subscribe(
     res => {
       this.snackBar.open("label Set sucessfully","Ok",{duration:3000})
     }
   )
+  }
 }
 displayAllLabels() {
   this.labelService.getAllLabel().subscribe((response: any) => {
@@ -116,6 +121,7 @@ removeLabel(label)
 {
   console.log('Removing label id is-->' + label.labelId);
   console.log('removing Note id is -->' + this.note.id);
+  this.removableLabel=false;
   this.labelService.removingLabelOnNote(label.labelId, this.note.id).subscribe(
     res => {
       this.snackBar.open("Label removed","Ok",{duration:3000})

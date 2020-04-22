@@ -12,11 +12,16 @@ import { Label } from '../model/label';
 export class LabelService {
   private baseUrl = environment.USER_API_URL;
  label: Label = new Label()
-  private Label = new Subject<any>();
-  private _autoRefresh$ = new Subject();
-  get autoRefresh$() {
-    return this._autoRefresh$;
-  }
+ private noteId = new Subject<any>();
+ private labelId = new Subject<any>();
+ private labelList=new Subject<any>();
+ private noteList=new Subject<any>();
+ private _autoRefresh$ = new Subject();
+ private notesLabel=new Subject<any>();
+ private labelsNotes=new Subject<any>();
+ get autoRefresh$() {
+   return this._autoRefresh$;
+ }
   constructor(private http: HttpClient, ) { }
   private httpOtions = {
     headers: new HttpHeaders({ 'content-type': 'application/json' })
@@ -73,6 +78,4 @@ export class LabelService {
           this._autoRefresh$.next();
         }));
       }
-
-
 }
