@@ -12,13 +12,8 @@ import { Label } from '../model/label';
 export class LabelService {
   private baseUrl = environment.USER_API_URL;
  label: Label = new Label()
- private noteId = new Subject<any>();
- private labelId = new Subject<any>();
- private labelList=new Subject<any>();
- private noteList=new Subject<any>();
+
  private _autoRefresh$ = new Subject();
- private notesLabel=new Subject<any>();
- private labelsNotes=new Subject<any>();
  get autoRefresh$() {
    return this._autoRefresh$;
  }
@@ -72,7 +67,7 @@ export class LabelService {
         });
       }
 
-      removingLabelOnNote(labelId,noteId){
+      removingLabelOnNote(labelId,noteId):Observable<any>{
         return this.http.post(`${this.baseUrl}/label/removelabel?labelId=${labelId}&noteId=${noteId}`,{},
          { headers: new HttpHeaders().set('token', localStorage.getItem('token')) }).pipe(tap(() => {
           this._autoRefresh$.next();
