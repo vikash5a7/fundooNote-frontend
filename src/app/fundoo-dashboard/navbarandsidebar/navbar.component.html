@@ -18,7 +18,7 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="center center" fxFlex.xs="70" fxFlex="70" class="search">
                 <button mat-icon-button fxHide.xs="true"><mat-icon>search</mat-icon></button>
-                <input matTooltip="Search" placeholder="Search" class="input" />
+                <input [(ngModel)]="SearchTeram" matTooltip="Search" placeholder="Search" class="input" />
             </div>
             <div id="refresh" fxLayout="row">
                 <button mat-icon-button matTooltip="refresh" (click)="refresh()">
@@ -107,9 +107,6 @@
                 </div>
             </mat-nav-list>
         </mat-sidenav>
-        <div class="displayNote" *ngIf='isTrash'>
-            <app-note></app-note>
-        </div>
         <router-outlet></router-outlet>
     </mat-sidenav-container>
 </body>

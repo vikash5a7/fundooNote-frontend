@@ -3,6 +3,7 @@ import { UserService } from 'src/app/Services/user.service';
 import { TokenService } from '../../Services/token.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
   constructor(private user: UserService,
               private token: TokenService,
               private route: Router,
-              private matSnackBar: MatSnackBar
+              private matSnackBar: MatSnackBar,
+              private titleService: Title
     ) {
   }
   handleError(error: { error: any; }) {
@@ -51,7 +53,7 @@ export class LoginComponent implements OnInit {
     this.token.handle(data);
     this.isLoading = false;
     this.token.logedIn(true);
-    console.log('user is --->' + data)
+    console.log('user is --->' + data);
     this.matSnackBar.open('Sucessfully Login', 'ok', {
       duration: 5000
     });

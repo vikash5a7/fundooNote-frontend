@@ -13,14 +13,15 @@ import { LabelService } from 'src/app/Services/label.service';
 export class LabelNotesComponent implements OnInit {
   isPin = false;
   notes: [];
-  isEmptyArchivedNotesList:boolean;
+  isEmptyArchivedNotesList: boolean;
   getAllNotess: [];
   note: Note = new Note();
   id: any;
 
   constructor(
     public dialog: MatDialog,
-    private _Activatedroute:ActivatedRoute,
+    // tslint:disable-next-line: variable-name
+    private _Activatedroute: ActivatedRoute,
     private router: Router,
     private labelService: LabelService
   ) {
@@ -31,29 +32,27 @@ export class LabelNotesComponent implements OnInit {
     this.getAllNotes();
   }
   getAllNotes() {
-    this.id=this._Activatedroute.snapshot.paramMap.get("id");
+    this.id = this._Activatedroute.snapshot.paramMap.get('id');
     this.labelService.getAllLabelNotes(this.id).subscribe((response: any) => {
       console.log(response);
       console.log('note are the-- ' + response.obj);
       this.notes = response.obj;
-      if(this.notes!=null)
-      {
-        this.isEmptyArchivedNotesList=false;
+      if (this.notes != null) {
+        this.isEmptyArchivedNotesList = false;
       }
       console.log('Notes: ', this.notes);
     });
   }
   openDialog(note) {
-    console.log("catched note at simple note ", note);
+    console.log('catched note at simple note ', note);
     const matDialogueReference = this.dialog.open(UpdateNoteComponent, {
-      width: "500px",
-      height: "auto",
-      panelClass: "custom-dialog-container",
+      width: '500px',
+      height: 'auto',
+      panelClass: 'custom-dialog-container',
       data: { note }
     });
     matDialogueReference.afterClosed().subscribe(result => {
-      console.log("The dialog was closed with out update");
+      console.log('The dialog was closed with out update');
     });
   }
-
 }

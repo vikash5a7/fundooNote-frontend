@@ -70,7 +70,7 @@
                     </div>
                     <div class="display-labels">
                         <div *ngFor="let label of labelList| searchLabel : SearchTeram ">
-                            <mat-checkbox [(ngModel)]="checked" [ngModelOptions]="{standalone: true}" (click)="addNoteToLabel(label)"></mat-checkbox>
+                            <mat-checkbox (click)="addNoteToLabel(label)"></mat-checkbox>
                             <label mat-menu-item style="display: inline; ">{{label.name}}</label>
                         </div>
                     </div>

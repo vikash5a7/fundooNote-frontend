@@ -10,6 +10,7 @@ import { Note } from 'src/app/model/note';
 import { EditLabelComponent } from '../label/edit-label/edit-label.component';
 import { Label } from 'src/app/model/label';
 import { LabelService } from 'src/app/Services/label.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-navbar',
@@ -20,9 +21,10 @@ export class NavbarComponent {
   public grid = false;
   public isTrash = false;
   public isLabelNotes = false;
-  name: String;
+  SearchTeram: string;
+  name: string;
   note: Note = new Note();
-  label: Label=new Label();
+  label: Label = new Label();
   labelList: [];
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -35,20 +37,23 @@ export class NavbarComponent {
               private route: Router,
               public dialog: MatDialog,
               public labelService: LabelService,
-              private router: Router
+              private router: Router,
+              private titleService: Title
     ) {
       this.labelService.autoRefresh$.subscribe(() => {
         this.displayAllLabels();
       });
+      this.setTitle('Fundoo Note Dashboard');
     }
+    // tslint:disable-next-line: use-lifecycle-interface
     ngOnInit() {
       this.displayAllLabels();
-      this.name=localStorage.getItem('Name');
+      this.name = localStorage.getItem('Name');
     }
   displayAllLabels() {
       this.labelService.getAllLabel().subscribe((response: any) => {
-        console.log('reponse of label is ---->'+response);
-        console.log('inside the lable display')
+        console.log('reponse of label is ---->' + response);
+        console.log('inside the lable display' );
         this.labelList = response.obj;
         console.log('label are---> ', this.labelList);
       });
@@ -71,20 +76,24 @@ export class NavbarComponent {
     console.log('note display called');
   }
   openEditLabelDialog() {
-    console.log("catched note at simple note ");
+    console.log('catched note at simple note ');
     const matDialogueReference = this.dialog.open(EditLabelComponent, {
-      width: "330px",
-      height: "auto",
-      panelClass: "custom-dialog-container",
+      width: '330px',
+      height: 'auto',
+      panelClass: 'custom-dialog-container',
     });
     matDialogueReference.afterClosed().subscribe(result => {
-      console.log("The dialog was closed with out update");
+      console.log('The dialog was closed with out update');
     });
   }
-  getNotes(id){
+  getNotes(id) {
     this.isLabelNotes = true;
     console.log('id-----------' + id);
-    this.router.navigate(['/dashboard/note-label/',id]);
+    this.router.navigate(['/dashboard/note-label/', id]);
   }
+
+  public setTitle( dashboard: string) {
+    this.titleService.setTitle( dashboard );
+    }
 
 }

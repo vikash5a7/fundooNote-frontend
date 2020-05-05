@@ -1,5 +1,5 @@
 import { NoteService } from '../../Services/note.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Note } from 'src/app/model/note';
 import { MatSnackBar, MatDialog } from '@angular/material';
 @Component({
@@ -8,13 +8,14 @@ import { MatSnackBar, MatDialog } from '@angular/material';
   styleUrls: ['./display-note.component.scss']
 })
 export class DisplayNoteComponent implements OnInit {
+  @Input() SearchTeram: string;
   isPin = false;
   notes: [];
   getAllNotess: [];
   note: Note = new Note();
   constructor( private noteService: NoteService,
-                private snackBar: MatSnackBar,
-                public dialog: MatDialog,) {
+               private snackBar: MatSnackBar,
+               public dialog: MatDialog, ) {
     this.noteService.autoRefresh$.subscribe(() => {
       this.getAllNotes();
     });
@@ -30,5 +31,4 @@ export class DisplayNoteComponent implements OnInit {
       console.log('Notes: ', this.notes);
     });
   }
-
 }

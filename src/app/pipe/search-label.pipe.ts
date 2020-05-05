@@ -3,11 +3,11 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'searchLabel'
 })
 export class SearchLabelPipe implements PipeTransform {
-  transform(labelList: any, SearchTeram: String){
-    if(!labelList|| !SearchTeram){
+  transform(labelList: any, SearchTeram: string ) {
+    if (!labelList || !SearchTeram) {
       return labelList;
     }
     return labelList.filter(
-      label=>label.name.toLowerCase().indexOf(SearchTeram.toLowerCase())!==-1);
+      label => label.name.toLowerCase().indexOf(SearchTeram.toLowerCase()) !== -1);
   }
 }

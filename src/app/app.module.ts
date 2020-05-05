@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,6 +52,7 @@ import { CollabratorComponent } from './fundoo-dashboard/collabrator/collabrator
 import { SearchLabelPipe } from './pipe/search-label.pipe';
 import { LabelNotesComponent } from './fundoo-dashboard/label-notes/label-notes.component';
 import { SampleNoteComponent } from './fundoo-dashboard/sample-note/sample-note.component';
+import { SearchNotePipe } from './pipe/search-note.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +81,7 @@ import { SampleNoteComponent } from './fundoo-dashboard/sample-note/sample-note.
     SearchLabelPipe,
     LabelNotesComponent,
     SampleNoteComponent,
+    SearchNotePipe,
   ],
   imports: [
     BrowserModule,
@@ -112,10 +114,10 @@ import { SampleNoteComponent } from './fundoo-dashboard/sample-note/sample-note.
     MatDialogModule,
     MatCheckboxModule,
   ],
-  providers: [],
+  providers: [Title],
   bootstrap: [AppComponent],
   entryComponents: [
-    UpdateNoteComponent,EditLabelComponent, CollabratorComponent
+    UpdateNoteComponent, EditLabelComponent, CollabratorComponent
   ]
 })
 export class AppModule { }

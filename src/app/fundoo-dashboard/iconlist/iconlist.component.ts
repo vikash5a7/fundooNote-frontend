@@ -12,27 +12,24 @@ import { CollabratorComponent } from '../collabrator/collabrator.component';
   styleUrls: ['./iconlist.component.scss']
 })
 export class IconlistComponent implements OnInit {
-  @Input() note: Note;
-  public dateTime = null ;
-  public checked = true;
-  public removable =true;
-  public removableLabel = true;
-  label : Label =new Label;
-  labelList= [];
-  labels : [];
-  SearchTeram : null;
   constructor( private noteService: NoteService,
-    private snackBar : MatSnackBar,
-    public labelService: LabelService,
-    public dialog: MatDialog
+               private snackBar: MatSnackBar,
+               public labelService: LabelService,
+               public dialog: MatDialog
     ) {
       this.labelService.autoRefresh$.subscribe(() => {
         this.displayAllLabels();
       });
     }
-    ngOnInit() {
-      this.displayAllLabels();
-    }
+  @Input() note: Note;
+  public dateTime = null ;
+  public checked = false;
+  public removable = true;
+  public removableLabel = true;
+  label: Label = new Label();
+  labelList = [];
+  labels: [];
+  SearchTeram: null;
   arrayOfColors = [
     [
       { color: 'rgb(255, 179, 255)', name: 'pink' },
@@ -50,96 +47,97 @@ export class IconlistComponent implements OnInit {
       { color: ' rgb(158, 136, 191)', name: 'darkYellow' }
     ]
   ];
+    ngOnInit() {
+      this.displayAllLabels();
+    }
   setColor(color) {
-    console.log("Color---->", color, this.note.id);
-    console.log('note id--->' ,this.note.id);
+    console.log('note id--->' , this.note.id);
     this.noteService.addColor(this.note.id, color).subscribe(res => {
-      this.snackBar.open("color Changed", "OK", { duration: 3000 });
-    })
+      this.snackBar.open('color Changed', 'OK', { duration: 3000 });
+    });
   }
   deleteNote(id) {
     console.log('Restoring note id is --->>' + id);
     this.noteService.deleteNote(id).subscribe(res => {
-      this.snackBar.open("Note is trashed", "OK", { duration: 3000 });
-    })
+      this.snackBar.open('Note is trashed', 'OK', { duration: 3000 });
+    });
   }
-  archive(id){
+  archive(id) {
     console.log('archive note id------>' + id);
     this.noteService.archiveNote(id).subscribe(res => {
-      this.snackBar.open("Note is archived", "OK", { duration: 3000 });
-    })
+      this.snackBar.open('Note is archived', 'OK', { duration: 3000 });
+    });
   }
-  removeReminder(id){
+  removeReminder(id) {
     console.log('remove reminder note id------>' + id);
-    this.removable =false;
+    this.removable = false;
     this.noteService.removeReminder(id).subscribe(res => {
-      this.snackBar.open("Removed reminder successfully", "OK", { duration: 3000 });
-    })
+      this.snackBar.open('Removed reminder successfully', 'OK', { duration: 3000 });
+    });
   }
-  setReminder(id)
-  {
+  setReminder(id) {
   console.log('reminder----->' + id);
-  if(this.dateTime!=null)
-  this.noteService.addreminder(id,this.dateTime).subscribe(res => {
-    this.snackBar.open("Reminder added successfully at "+ this.dateTime, "OK", { duration: 3000 });
-  })
-  else
- this.snackBar.open("Reminder not Updated", "OK", { duration: 3000 });
+  if (this.dateTime != null) {
+  this.noteService.addreminder(id, this.dateTime).subscribe(res => {
+    this.snackBar.open('Reminder added successfully at ' + this.dateTime, 'OK', { duration: 3000 });
+  });
+  } else {
+ this.snackBar.open('Reminder not Updated', 'OK', { duration: 3000 });
+  }
   }
 
   makeCopy(note) {
-    console.log('the given dat-->'+ note);
+    console.log('the given dat-->' + note);
     this.noteService.createNote(note).subscribe(res => {
-    this.snackBar.open("Note copied ", "OK", { duration: 3000 });
-  })
+    this.snackBar.open('Note copied ', 'OK', { duration: 3000 });
+  });
   }
-  stopPropagation(event){
+  stopPropagation(event) {
     event.stopPropagation();
 }
 addNoteToLabel(label) {
   console.log('label id is-->' + label.labelId);
   console.log('Note id is -->' + this.note.id);
-  console.log('checked value is'+ this.checked);
-  if(this.checked){
+  console.log('checked value is' + this.checked);
+  if (!this.checked) {
   this.labelService.addLabelOnNote(label.labelId, this.note.id).subscribe(
     res => {
-      this.snackBar.open("label Set sucessfully","Ok",{duration:3000})
+      this.snackBar.open('label Set sucessfully', 'Ok', {duration: 3000});
     }
-  )
+  );
   }
 }
 displayAllLabels() {
   this.labelService.getAllLabel().subscribe((response: any) => {
-    console.log('reponse of label is ---->'+response);
-    console.log('inside the lable display')
+    console.log('reponse of label is ---->' + response);
+    console.log('inside the lable display');
     this.labelList = response.obj;
     console.log('label are---> ', this.labelList);
   });
 }
 
-removeLabel(label)
-{
+removeLabel(label) {
   console.log('Removing label id is-->' + label.labelId);
   console.log('removing Note id is -->' + this.note.id);
-  this.removableLabel=false;
+  this.removableLabel = false;
   this.labelService.removingLabelOnNote(label.labelId, this.note.id).subscribe(
     res => {
-      this.snackBar.open("Label removed","Ok",{duration:3000})
+      this.snackBar.open('Label removed', 'Ok', {duration: 3000});
     }
-  )
+  );
 }
 
 
 openDialog(note) {
-  console.log("catched note at simple note ", note);
+  console.log('catched note at simple note ', note);
   const matDialogueReference = this.dialog.open(CollabratorComponent, {
-    width: "500px",
-    height: "auto",
-    panelClass: "custom-dialog-container",
+    width: '500px',
+    height: 'auto',
+    panelClass: 'custom-dialog-container',
     data: { note }
   });
   matDialogueReference.afterClosed().subscribe(result => {
-    console.log("The dialog was closed with out update");
+    console.log('The dialog was closed with out update');
   });
 }
 }

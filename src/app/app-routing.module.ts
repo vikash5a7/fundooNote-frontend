@@ -37,7 +37,7 @@ const routes: Routes = [
     path: 'dashboard', component: FundooDashboardComponent, canActivate: [AfterLoginService],
     children : [
       {
-      path: "", redirectTo: "/dashboard/notes", pathMatch: "full"
+      path: '', redirectTo: '/dashboard/notes', pathMatch: 'full'
       },
       {
         path: 'notes', component: NoteComponent, canActivate: [AfterLoginService]
