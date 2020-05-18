@@ -5,7 +5,7 @@ import { SpinnerComponent } from 'src/app/util/spinner/spinner.component';
 import { LogoComponent } from 'src/app/util/logo/logo.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import {  MatIconModule, MatListModule } from '@angular/material';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSnackBarModule,} from '@angular/material';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSnackBarModule} from '@angular/material';
 
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
