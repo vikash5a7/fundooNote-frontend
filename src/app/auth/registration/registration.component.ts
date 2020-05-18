@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class RegistrationComponent implements OnInit {
   public error = null;
+  message = null;
   public isloading = false;
   public form = {
   fname: null,
@@ -43,10 +44,11 @@ export class RegistrationComponent implements OnInit {
    );
   }
   handleResponse(data) {
+    this.message = data.message;
     this.isloading = false;
+    console.log(data);
     this.matSnakeBar.open('Sucessfull Registration Done ', 'ok', {
       duration: 5000
     });
-    this.route.navigateByUrl('\login');
   }
 }

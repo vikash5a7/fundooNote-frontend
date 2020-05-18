@@ -10,13 +10,14 @@ import { CollabratorService } from 'src/app/Services/collabrator.service';
   styleUrls: ['./collabrator.component.scss']
 })
 export class CollabratorComponent implements OnInit {
-  email: String;
+  email: string;
   note: Note;
-  enterEmail:String;
+  enterEmail: string;
   error: any;
   constructor(
     private matSnackBar: MatSnackBar,
     private collabratoreService: CollabratorService,
+    // tslint:disable-next-line: variable-name
     public _matDialogRef: MatDialogRef<CollabratorComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
@@ -24,15 +25,14 @@ export class CollabratorComponent implements OnInit {
    }
 
   ngOnInit(
-  )
-    {
-    this.email =localStorage.getItem('email');
+  ) {
+    this.email = localStorage.getItem('email');
   }
   close() {
     this._matDialogRef.close();
   }
 
-  addCollabrator(note){
+  addCollabrator(note) {
     this.collabratoreService.addCollabrator(this.enterEmail, note).subscribe(
      data => this.handleResponse(data),
      error => this.handleError(error)

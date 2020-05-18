@@ -28,7 +28,7 @@
                 <mat-hint>Enter your password</mat-hint>
                 <mat-error>Valid password Required</mat-error>
             </mat-form-field>
-            <button [routerLink]="['/registration']" class="lognBtn" mat-raised-button type="button" fxFlexAlign="start">Create Account</button>
+            <button [routerLink]="['/registration']" id="registration" mat-raised-button type="button" fxFlexAlign="start">Create Account</button>
             <button mat-raised-button type="submit" fxFlexAlign="end" color="primary" [disabled]="!loginForm.valid" type="submit">Login</button>
             <a fxFlexAlign="center" [routerLink]="[ '/forget-password']">Forget password ?</a>
         </form>

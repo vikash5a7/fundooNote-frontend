@@ -7,6 +7,7 @@
         <h5>Create your Fundoo Account</h5>
         <br>
 
+
         <!-- form  -->
         <form #regForm=ngForm (ngSubmit)="onSubmit(); regForm.resetForm();" *ngIf="!isloading">
             <div *ngIf="firstName.touched && !firstName.valid">
@@ -59,6 +60,7 @@
             <div class="example-container">
                 <!-- displaying error from backend -->
                 <div class="alert alert-danger text-justify" [hidden]="!error">{{error}}</div>
+                <div class="alert alert-success text-justify" [hidden]="!message">{{message}}</div>
                 <mat-form-field appearance="outline">
                     <mat-label>Enter Your First name</mat-label>
                     <input matInput minlength="3" maxlength="10" #firstName="ngModel" required [(ngModel)]="form.fname" name="fname">
@@ -102,7 +104,7 @@
             </mat-form-field>
             <button [routerLink]="['/login']" mat-raised-button>Login</button>
             <br>
-            <button type="submit" [disabled]="!regForm.valid" style="margin-left: 70%;" class="lognBtn" mat-raised-button color="primary">Submit</button>
+            <button type="submit" [disabled]="!regForm.valid" style="margin-left: 70%;" id="registrationBtn" mat-raised-button color="primary">Submit</button>
         </form>
     </mat-card>
 </div>

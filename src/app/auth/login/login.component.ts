@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
               private matSnackBar: MatSnackBar,
               private titleService: Title
     ) {
+      this.setTitle('Fundoo Notes');
   }
   handleError(error: { error: any; }) {
     this.isLoading = false;
@@ -59,4 +60,8 @@ export class LoginComponent implements OnInit {
     });
     this.route.navigateByUrl('dashboard/notes');
   }
+
+  public setTitle( dashboard: string) {
+    this.titleService.setTitle( dashboard );
+    }
 }

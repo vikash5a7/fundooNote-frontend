@@ -8,7 +8,6 @@ import { MatSnackBar, MatDialog } from '@angular/material';
   styleUrls: ['./display-note.component.scss']
 })
 export class DisplayNoteComponent implements OnInit {
-  @Input() SearchTeram: string;
   isPin = false;
   notes: [];
   getAllNotess: [];

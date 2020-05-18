@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./note.component.scss']
 })
 export class NoteComponent implements OnInit {
-  @Input() SearchTeram: string;
+  @Output() SearchTeram: any;
   constructor(
     private titleService: Title
   ) { }

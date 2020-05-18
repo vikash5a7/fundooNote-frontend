@@ -21,7 +21,7 @@ export class NavbarComponent {
   public grid = false;
   public isTrash = false;
   public isLabelNotes = false;
-  SearchTeram: string;
+  SearchTeram: any;
   name: string;
   note: Note = new Note();
   label: Label = new Label();
