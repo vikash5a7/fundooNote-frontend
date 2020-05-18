@@ -3,7 +3,6 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { FundooDashboardComponent } from './fundoo-dashboard/fundoo-dashboard.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { UpdatePasswordComponent } from './auth/update-password/update-password.component';
@@ -29,9 +28,6 @@ const routes: Routes = [
   },
   {
     path: 'forget-password', component: ForgotPasswordComponent, canActivate: [BeforeLoginService]
-  },
-  {
-    path: 'reset-password/:token', component: ResetPasswordComponent, canActivate: [BeforeLoginService]
   },
   {
     path: 'dashboard', component: FundooDashboardComponent, canActivate: [AfterLoginService],

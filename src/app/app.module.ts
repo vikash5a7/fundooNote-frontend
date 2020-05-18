@@ -14,7 +14,6 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FundooDashboardComponent } from './fundoo-dashboard/fundoo-dashboard.component';
 import { FormsModule } from '@angular/forms';
@@ -59,7 +58,6 @@ import { SearchNotePipe } from './pipe/search-note.pipe';
     LoginComponent,
     RegistrationComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent,
     PagenotfoundComponent,
     FundooDashboardComponent,
     UpdatePasswordComponent,
